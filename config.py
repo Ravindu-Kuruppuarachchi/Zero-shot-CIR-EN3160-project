@@ -9,7 +9,7 @@ class Config:
     device: torch.device = torch.device('cuda')
     batch_size: int = 64  # you can adjust it according to your GPU memory
     encoder: str = 'text' # ['neither', 'text', 'both']
-    laion_type: str = 'laion_combined' # ['laion_combined', 'laion_template', 'laion_llm'] choose different dataset
+    laion_type: str = 'laion_template' # ['laion_combined', 'laion_template', 'laion_llm'] choose different dataset
     transform: str = 'targetpad'
     target_ratio: float = 1.25
     learning_rate: float = 1e-4
@@ -19,11 +19,14 @@ class Config:
     save_best: bool = True 
     use_amp: bool = True 
     validation_frequency: int = 1
-    comment: str = "fiq_test_finetune_blip_text_combined"
+    comment: str = "fiq_test_template"
     dataset: str='fiq' # ['fiq', 'cirr']
     save_path_prefix = ""
     # eval related
-    eval_load_path: str="D:/Documents 2.0/5th semester/computer vision/Vision Project/epoch_10_laion_combined.pth"
-    submission_name: str='fiq_test_finetune_blip_text_combined'
+    eval_load_path: str="xxx"
+    #submission_name: str='fiq_test_finetune_blip_text_combined'
     
-    
+    # Set this to the folder where you want checkpoints to be saved
+    save_path_prefix: str = "D:/Documents 2.0/5th semester/computer vision/Vision Project/ZS-CIR/runs"
+    # A descriptive name for this training run
+    comment: str = "train_blip_text_fashion_subset_2k"
