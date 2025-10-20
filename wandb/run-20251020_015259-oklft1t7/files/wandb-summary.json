@@ -1,1 +1,0 @@
-{"dress_recall_at10": 37.96791434288025, "dress_recall_at50": 51.871657371520996, "toptee_recall_at10": 62.5, "toptee_recall_at50": 62.5, "shirt_recall_at10": 35.766422748565674, "shirt_recall_at50": 48.175182938575745, "_timestamp": 1760905652.5560722, "_runtime": 272.91171622276306, "_step": 0, "_wandb": {"runtime": 269}}
