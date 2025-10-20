@@ -11,14 +11,14 @@ class TransAgg(nn.Module):
         self.device = cfg.device
         self.model_name = cfg.model_name
         if self.model_name == 'blip':
-            self.pretrained_model = blip_retrieval(pretrained="/GPFS/data/yikunliu/cache/model_base_retrieval_coco.pth")
+            self.pretrained_model = blip_retrieval(pretrained="D:/Documents 2.0/5th semester/computer vision/Vision Project/model_base_retrieval_coco.pth")
             self.feature_dim = 256
         elif self.model_name == 'clip-Vit-B/32':
-            self.pretrained_model, self.preprocess = clip.load("/GPFS/data/yikunliu/cache/ViT-B-32.pt", device=cfg.device, jit=False)
-            self.feature_dim = self.pretrained_model.visual.output_dim 
+            self.pretrained_model, self.preprocess = clip.load("D:/Documents 2.0/5th semester/computer vision/Vision Project/ViT-B-32.pt", device=cfg.device, jit=False)
+            self.feature_dim = self.pretrained_model.visual.output_dim
         elif self.model_name == 'clip-Vit-L/14':
-            self.pretrained_model, self.preprocess = clip.load("/GPFS/data/yikunliu/cache/ViT-L-14.pt", device=cfg.device, jit=False)
-            self.feature_dim = self.pretrained_model.visual.output_dim 
+            self.pretrained_model, self.preprocess = clip.load("D:/Documents 2.0/5th semester/computer vision/Vision Project/ViT-L-14.pt", device=cfg.device, jit=False)
+            self.feature_dim = self.pretrained_model.visual.output_dim
         encoder_layer = nn.TransformerEncoderLayer(d_model=self.feature_dim, nhead=8, dropout=cfg.dropout, batch_first=True, norm_first=True, activation="gelu")
         self.fusion = nn.TransformerEncoder(encoder_layer, num_layers=cfg.num_layers)
         self.logit_scale = 100

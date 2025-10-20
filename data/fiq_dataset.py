@@ -28,7 +28,7 @@ class FashionIQDataset(Dataset):
         :param preprocess: function which preprocesses the image
         """
 
-        self.fiq_path_prefix = ""
+        self.fiq_path_prefix = "D:/Documents 2.0/5th semester/computer vision/Vision Project/fig"
 
         self.mode = mode
         self.dress_types = dress_types

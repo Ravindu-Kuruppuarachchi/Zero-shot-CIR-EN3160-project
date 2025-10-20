@@ -19,11 +19,11 @@ class Config:
     save_best: bool = True 
     use_amp: bool = True 
     validation_frequency: int = 1
-    comment: str = "cirr_TransAgg_finetune_blip_text_combined"
-    dataset: str='cirr' # ['fiq', 'cirr']
+    comment: str = "fiq_test_finetune_blip_text_combined"
+    dataset: str='fiq' # ['fiq', 'cirr']
     save_path_prefix = ""
     # eval related
-    eval_load_path: str="xxx"
-    submission_name: str='cirr_test_finetune_blip_text_combined'
+    eval_load_path: str="D:/Documents 2.0/5th semester/computer vision/Vision Project/epoch_10_laion_combined.pth"
+    submission_name: str='fiq_test_finetune_blip_text_combined'
     
     
