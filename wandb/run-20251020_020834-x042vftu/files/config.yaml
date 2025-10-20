@@ -1,0 +1,101 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.13.10
+    framework: huggingface
+    huggingface_version: 4.27.3
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    python_version: 3.11.3
+    start_time: 1760906314.789057
+    t:
+      1:
+      - 1
+      - 11
+      - 41
+      - 49
+      - 55
+      - 63
+      2:
+      - 1
+      - 11
+      - 41
+      - 49
+      - 55
+      - 63
+      3:
+      - 2
+      - 13
+      - 16
+      - 23
+      4: 3.11.3
+      5: 0.13.10
+      6: 4.27.3
+      8:
+      - 3
+      - 5
+adam_epsilon:
+  desc: null
+  value: 1.0e-08
+batch_size:
+  desc: null
+  value: 8
+comment:
+  desc: null
+  value: fiq_test_
+dataset:
+  desc: null
+  value: fiq
+device:
+  desc: null
+  value: cuda
+dropout:
+  desc: null
+  value: 0.5
+encoder:
+  desc: null
+  value: text
+eval_load_path:
+  desc: null
+  value: "D:\\Documents 2.0\x05th semester\\computer vision\\Vision Project\\epoch_04_laion_llm.pth"
+laion_type:
+  desc: null
+  value: laion_template
+learning_rate:
+  desc: null
+  value: 0.0001
+model_name:
+  desc: null
+  value: clip-Vit-B/32
+num_epochs:
+  desc: null
+  value: 20
+num_layers:
+  desc: null
+  value: 2
+save_best:
+  desc: null
+  value: true
+save_path:
+  desc: null
+  value: /wandb/2025-10-20-02-08-31_fiq_test__eval_run.pth
+submission_name:
+  desc: null
+  value: fiq_test_llm
+target_ratio:
+  desc: null
+  value: 1.25
+transform:
+  desc: null
+  value: targetpad
+use_amp:
+  desc: null
+  value: true
+validation_frequency:
+  desc: null
+  value: 1
+weight_decay:
+  desc: null
+  value: 0.05

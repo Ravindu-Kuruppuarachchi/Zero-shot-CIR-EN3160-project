@@ -1,0 +1,785 @@
+2025-10-19 01:20:13,386 INFO    StreamThr :1184 [internal.py:wandb_internal():87] W&B internal server running at pid: 1184, started at: 2025-10-19 01:20:13.385200
+2025-10-19 01:20:13,387 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status
+2025-10-19 01:20:13,387 INFO    WriterThread:1184 [datastore.py:open_for_write():85] open: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\run-fgexjhly.wandb
+2025-10-19 01:20:13,387 DEBUG   SenderThread:1184 [sender.py:send():336] send: header
+2025-10-19 01:20:13,433 DEBUG   SenderThread:1184 [sender.py:send():336] send: run
+2025-10-19 01:20:14,657 INFO    SenderThread:1184 [dir_watcher.py:__init__():216] watching files in: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files
+2025-10-19 01:20:14,658 INFO    SenderThread:1184 [sender.py:_start_run_threads():1067] run started: fgexjhly with start time 1760817013.387591
+2025-10-19 01:20:14,658 DEBUG   SenderThread:1184 [sender.py:send_request():363] send_request: summary_record
+2025-10-19 01:20:14,658 INFO    SenderThread:1184 [sender.py:_save_file():1321] saving file wandb-summary.json with policy end
+2025-10-19 01:20:14,662 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: check_version
+2025-10-19 01:20:14,663 DEBUG   SenderThread:1184 [sender.py:send_request():363] send_request: check_version
+2025-10-19 01:20:15,665 INFO    Thread-16 :1184 [dir_watcher.py:_on_file_created():275] file/dir created: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\wandb-summary.json
+2025-10-19 01:20:15,765 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: run_start
+2025-10-19 01:20:15,795 DEBUG   HandlerThread:1184 [system_info.py:__init__():31] System info init
+2025-10-19 01:20:15,795 DEBUG   HandlerThread:1184 [system_info.py:__init__():46] System info init done
+2025-10-19 01:20:15,795 INFO    HandlerThread:1184 [system_monitor.py:start():151] Starting system monitor
+2025-10-19 01:20:15,795 INFO    SystemMonitor:1184 [system_monitor.py:_start():116] Starting system asset monitoring threads
+2025-10-19 01:20:15,795 INFO    HandlerThread:1184 [system_monitor.py:probe():172] Collecting system info
+2025-10-19 01:20:15,805 INFO    SystemMonitor:1184 [interfaces.py:start():168] Started cpu
+2025-10-19 01:20:15,805 INFO    SystemMonitor:1184 [interfaces.py:start():168] Started disk
+2025-10-19 01:20:15,805 INFO    SystemMonitor:1184 [interfaces.py:start():168] Started gpu
+2025-10-19 01:20:15,805 INFO    SystemMonitor:1184 [interfaces.py:start():168] Started memory
+2025-10-19 01:20:15,816 INFO    SystemMonitor:1184 [interfaces.py:start():168] Started network
+2025-10-19 01:20:15,816 DEBUG   HandlerThread:1184 [system_info.py:probe():195] Probing system
+2025-10-19 01:20:15,816 DEBUG   HandlerThread:1184 [system_info.py:_probe_git():180] Probing git
+2025-10-19 01:20:15,816 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:15,816 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:15,895 DEBUG   HandlerThread:1184 [system_info.py:_probe_git():188] Probing git done
+2025-10-19 01:20:15,895 DEBUG   HandlerThread:1184 [system_info.py:probe():241] Probing system done
+2025-10-19 01:20:15,895 DEBUG   HandlerThread:1184 [system_monitor.py:probe():181] {'os': 'Windows-10-10.0.26100-SP0', 'python': '3.11.3', 'heartbeatAt': '2025-10-18T19:50:15.816022', 'startedAt': '2025-10-18T19:50:13.365285', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': 'D:\\Documents 2.0\\5th semester\\computer vision\\Vision Project\\ZS-CIR\\mainfig.py', 'codePath': 'mainfig.py', 'git': {'remote': 'https://github.com/Ravindu-Kuruppuarachchi/Zero-shot-CIR-EN3160-project.git', 'commit': '41069f5d79cda2647492b5d0ec30a86f18e3d03e'}, 'email': 'ravindukrashmika@gmail.com', 'root': 'D:/Documents 2.0/5th semester/computer vision/Vision Project/ZS-CIR', 'host': 'DESKTOP-RavinduRashmika', 'username': 'USER', 'executable': 'D:\\Documents 2.0\\5th semester\\computer vision\\Vision Project\\ZS-CIR\\venv\\Scripts\\python.exe', 'cpu_count': 4, 'cpu_count_logical': 8, 'cpu_freq': {'current': 2803.0, 'min': 0.0, 'max': 2803.0}, 'cpu_freq_per_core': [{'current': 2803.0, 'min': 0.0, 'max': 2803.0}], 'disk': {'total': 476.92284774780273, 'used': 269.57253646850586}, 'gpu': 'NVIDIA GeForce MX350', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce MX350', 'memory_total': 2147483648}], 'memory': {'total': 15.74881362915039}}
+2025-10-19 01:20:15,895 INFO    HandlerThread:1184 [system_monitor.py:probe():182] Finished collecting system info
+2025-10-19 01:20:15,895 INFO    HandlerThread:1184 [system_monitor.py:probe():185] Publishing system info
+2025-10-19 01:20:15,895 DEBUG   HandlerThread:1184 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2025-10-19 01:20:15,895 DEBUG   HandlerThread:1184 [system_info.py:_save_pip():67] Saving pip packages done
+2025-10-19 01:20:15,895 INFO    HandlerThread:1184 [system_monitor.py:probe():187] Finished publishing system info
+2025-10-19 01:20:15,905 DEBUG   SenderThread:1184 [sender.py:send():336] send: files
+2025-10-19 01:20:15,905 INFO    SenderThread:1184 [sender.py:_save_file():1321] saving file wandb-metadata.json with policy now
+2025-10-19 01:20:15,914 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: stop_status
+2025-10-19 01:20:15,914 DEBUG   SenderThread:1184 [sender.py:send_request():363] send_request: stop_status
+2025-10-19 01:20:16,560 DEBUG   SenderThread:1184 [sender.py:send():336] send: telemetry
+2025-10-19 01:20:16,668 INFO    Thread-16 :1184 [dir_watcher.py:_on_file_created():275] file/dir created: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\output.log
+2025-10-19 01:20:16,668 INFO    Thread-16 :1184 [dir_watcher.py:_on_file_created():275] file/dir created: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\requirements.txt
+2025-10-19 01:20:16,668 INFO    Thread-16 :1184 [dir_watcher.py:_on_file_created():275] file/dir created: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\wandb-metadata.json
+2025-10-19 01:20:17,277 INFO    wandb-upload_0:1184 [upload_job.py:push():138] Uploaded file C:\Users\USER\AppData\Local\Temp\tmplx92j4jmwandb\ccyiipcd-wandb-metadata.json
+2025-10-19 01:20:17,828 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:17,828 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:18,575 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:20:18,678 INFO    Thread-16 :1184 [dir_watcher.py:_on_file_modified():292] file/dir modified: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\output.log
+2025-10-19 01:20:19,845 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:19,845 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:21,859 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:21,859 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:23,595 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:20:23,881 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:23,881 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:25,894 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:25,894 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:27,913 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:27,913 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:28,628 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:20:29,935 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Unknown Error
+2025-10-19 01:20:29,935 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Unknown Error
+2025-10-19 01:20:29,935 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:29,935 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:30,915 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:20:30,915 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:20:31,953 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:31,953 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:32,761 INFO    Thread-16 :1184 [dir_watcher.py:_on_file_modified():292] file/dir modified: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\output.log
+2025-10-19 01:20:33,772 INFO    Thread-16 :1184 [dir_watcher.py:_on_file_modified():292] file/dir modified: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\output.log
+2025-10-19 01:20:33,778 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:20:34,054 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:34,054 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:35,950 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:20:36,145 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:36,145 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:38,189 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:38,189 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:38,816 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:20:40,244 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:40,244 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:40,984 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:20:42,287 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:42,287 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:43,854 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:20:44,323 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:44,323 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:44,842 INFO    Thread-16 :1184 [dir_watcher.py:_on_file_modified():292] file/dir modified: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\config.yaml
+2025-10-19 01:20:46,021 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:20:46,546 ERROR   gpu       :1184 [interfaces.py:aggregate():146] Failed to serialize metric: division by zero
+2025-10-19 01:20:46,546 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:46,546 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:48,568 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:48,568 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:49,759 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:20:50,598 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:50,598 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:51,075 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:20:52,608 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:52,608 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:54,624 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:54,624 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:54,777 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:20:56,099 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:20:56,629 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:56,629 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:58,637 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:58,637 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:20:59,801 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:21:00,643 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:00,645 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:01,133 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:21:02,656 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:02,656 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:04,668 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:04,668 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:04,829 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:21:06,147 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:21:06,690 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:06,690 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:08,703 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:08,703 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:09,857 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:21:10,715 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:10,715 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:11,168 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:21:12,729 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:12,729 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:14,749 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:14,749 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:14,870 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:21:15,822 DEBUG   SystemMonitor:1184 [system_monitor.py:_start():130] Starting system metrics aggregation loop
+2025-10-19 01:21:15,822 DEBUG   SenderThread:1184 [sender.py:send():336] send: stats
+2025-10-19 01:21:16,198 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:21:16,797 ERROR   gpu       :1184 [interfaces.py:aggregate():146] Failed to serialize metric: division by zero
+2025-10-19 01:21:16,799 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:16,799 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:18,808 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:18,808 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:20,813 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:20,813 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:20,833 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:21:21,234 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:21:22,813 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:22,813 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:24,817 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:24,817 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:25,868 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:21:26,256 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:21:26,822 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:26,822 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:28,833 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:28,833 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:30,850 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:30,850 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:30,901 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:21:31,287 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:21:32,854 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:32,854 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:34,857 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:34,857 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:35,934 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:21:36,319 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:21:36,859 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:36,859 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:38,879 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:38,879 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:40,890 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:40,890 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:40,962 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:21:41,343 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:21:42,895 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:42,895 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:44,896 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:44,896 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:45,829 DEBUG   SenderThread:1184 [sender.py:send():336] send: stats
+2025-10-19 01:21:46,373 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:21:46,840 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:21:46,930 ERROR   gpu       :1184 [interfaces.py:aggregate():146] Failed to serialize metric: division by zero
+2025-10-19 01:21:46,930 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:46,930 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:48,226 INFO    Thread-16 :1184 [dir_watcher.py:_on_file_modified():292] file/dir modified: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\output.log
+2025-10-19 01:21:48,937 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:48,937 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:50,269 INFO    Thread-16 :1184 [dir_watcher.py:_on_file_modified():292] file/dir modified: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\output.log
+2025-10-19 01:21:50,976 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:50,977 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:51,440 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:21:52,824 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:21:53,024 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:53,026 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:55,094 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:55,096 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:56,519 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:21:57,210 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:57,211 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:57,859 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:21:59,234 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:21:59,234 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:01,287 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:01,287 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:01,559 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:22:02,899 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:22:03,310 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:03,313 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:05,358 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:05,358 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:06,583 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:22:07,471 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:07,471 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:08,506 INFO    Thread-16 :1184 [dir_watcher.py:_on_file_modified():292] file/dir modified: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\output.log
+2025-10-19 01:22:08,721 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:22:09,534 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:09,536 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:11,550 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:11,550 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:11,621 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:22:12,556 INFO    Thread-16 :1184 [dir_watcher.py:_on_file_modified():292] file/dir modified: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\output.log
+2025-10-19 01:22:13,565 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:13,565 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:13,913 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:22:15,582 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:15,582 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:15,836 DEBUG   SenderThread:1184 [sender.py:send():336] send: stats
+2025-10-19 01:22:16,653 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:22:17,629 ERROR   gpu       :1184 [interfaces.py:aggregate():146] Failed to serialize metric: division by zero
+2025-10-19 01:22:17,640 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:17,640 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:19,644 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:19,644 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:19,856 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:22:21,644 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:21,644 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:21,685 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:22:23,648 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:23,648 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:24,881 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:22:25,656 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:25,656 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:26,719 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:22:27,664 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:27,664 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:29,674 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:29,674 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:29,910 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:22:31,680 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:31,680 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:31,741 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:22:33,844 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:33,844 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:34,854 INFO    Thread-16 :1184 [dir_watcher.py:_on_file_modified():292] file/dir modified: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\output.log
+2025-10-19 01:22:35,247 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:22:35,884 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:35,884 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:36,777 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:22:38,020 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:38,020 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:40,058 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:40,058 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:40,266 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:22:41,795 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:22:42,109 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:42,109 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:44,184 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:44,184 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:45,295 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:22:45,840 DEBUG   SenderThread:1184 [sender.py:send():336] send: stats
+2025-10-19 01:22:46,234 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:46,234 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:46,833 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:22:48,368 ERROR   gpu       :1184 [interfaces.py:aggregate():146] Failed to serialize metric: division by zero
+2025-10-19 01:22:48,370 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:48,370 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:50,619 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:50,619 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:50,941 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:22:51,902 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:22:52,638 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:52,638 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:52,976 INFO    Thread-16 :1184 [dir_watcher.py:_on_file_modified():292] file/dir modified: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\output.log
+2025-10-19 01:22:54,654 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:54,654 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:54,984 INFO    Thread-16 :1184 [dir_watcher.py:_on_file_modified():292] file/dir modified: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\output.log
+2025-10-19 01:22:56,594 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:22:56,665 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:56,665 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:56,920 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:22:58,684 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:22:58,684 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:00,708 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:00,708 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:01,610 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:23:01,956 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:23:02,718 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:02,718 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:04,731 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:04,731 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:06,624 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:23:06,735 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:06,735 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:06,988 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:23:08,736 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:08,736 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:10,749 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:10,749 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:11,641 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:23:12,025 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:23:12,763 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:12,763 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:14,774 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:14,774 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:15,844 DEBUG   SenderThread:1184 [sender.py:send():336] send: stats
+2025-10-19 01:23:16,789 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:16,789 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:16,850 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:23:17,053 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:23:18,833 ERROR   gpu       :1184 [interfaces.py:aggregate():146] Failed to serialize metric: division by zero
+2025-10-19 01:23:18,833 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:18,833 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:20,834 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:20,834 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:21,143 INFO    Thread-16 :1184 [dir_watcher.py:_on_file_modified():292] file/dir modified: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\output.log
+2025-10-19 01:23:22,116 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:23:22,579 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:23:22,843 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:22,843 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:24,852 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:24,852 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:26,891 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:26,891 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:27,160 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:23:27,179 INFO    Thread-16 :1184 [dir_watcher.py:_on_file_modified():292] file/dir modified: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\output.log
+2025-10-19 01:23:28,193 INFO    Thread-16 :1184 [dir_watcher.py:_on_file_modified():292] file/dir modified: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\output.log
+2025-10-19 01:23:28,408 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:23:28,964 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:28,964 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:31,001 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:31,001 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:32,208 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:23:33,051 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:33,051 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:33,430 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:23:35,118 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:35,118 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:37,174 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:37,174 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:37,252 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:23:38,468 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:23:39,204 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Unknown Error
+2025-10-19 01:23:39,204 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Unknown Error
+2025-10-19 01:23:39,204 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:39,204 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:41,247 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Unknown Error
+2025-10-19 01:23:41,247 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Unknown Error
+2025-10-19 01:23:41,247 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:41,247 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:42,288 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:23:43,296 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:43,296 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:43,498 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:23:45,324 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:45,324 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:45,854 DEBUG   SenderThread:1184 [sender.py:send():336] send: stats
+2025-10-19 01:23:47,312 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:23:47,332 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:47,332 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:48,869 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:23:49,374 ERROR   gpu       :1184 [interfaces.py:aggregate():146] Failed to serialize metric: division by zero
+2025-10-19 01:23:49,374 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:49,374 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:51,378 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:51,378 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:52,342 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:23:53,380 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:53,380 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:53,894 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:23:55,387 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:55,387 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:57,376 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:23:57,397 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:57,397 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:58,925 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:23:59,406 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:23:59,406 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:01,406 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:01,406 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:02,389 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:24:03,408 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:03,408 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:03,952 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:24:05,412 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:05,412 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:07,429 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:24:07,429 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:07,429 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:08,983 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:24:09,447 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:09,447 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:11,460 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:11,460 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:12,466 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:24:13,471 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:13,471 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:14,004 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:24:15,478 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:15,478 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:15,863 DEBUG   SenderThread:1184 [sender.py:send():336] send: stats
+2025-10-19 01:24:17,494 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:24:17,494 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:17,494 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:19,563 ERROR   gpu       :1184 [interfaces.py:aggregate():146] Failed to serialize metric: division by zero
+2025-10-19 01:24:19,566 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:19,566 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:19,895 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:24:21,571 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:21,571 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:22,510 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:24:23,576 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:23,576 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:24,926 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:24:25,597 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:25,598 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:27,537 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:24:27,607 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:27,607 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:29,629 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:29,629 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:29,946 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:24:31,646 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:31,646 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:32,555 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:24:33,662 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:33,662 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:34,983 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:24:35,677 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:35,677 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:37,587 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:24:37,694 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:37,694 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:39,703 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:39,703 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:40,008 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:24:41,711 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:41,711 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:42,620 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:24:43,717 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:43,717 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:45,041 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:24:45,727 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:45,727 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:45,863 DEBUG   SenderThread:1184 [sender.py:send():336] send: stats
+2025-10-19 01:24:47,639 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:24:47,740 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:47,740 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:49,815 ERROR   gpu       :1184 [interfaces.py:aggregate():146] Failed to serialize metric: division by zero
+2025-10-19 01:24:49,815 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:49,815 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:50,904 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:24:51,823 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:51,824 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:52,677 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:24:53,834 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:53,834 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:55,843 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:55,843 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:55,939 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:24:57,712 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:24:57,843 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:57,843 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:59,880 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:24:59,896 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:00,991 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:25:01,915 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:01,915 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:02,770 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:25:03,927 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:03,927 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:05,945 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:05,945 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:06,017 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:25:07,797 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:25:07,961 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:07,961 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:10,190 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:10,190 INFO    Thread-16 :1184 [dir_watcher.py:_on_file_modified():292] file/dir modified: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\output.log
+2025-10-19 01:25:10,190 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:11,385 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:25:12,199 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:12,199 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:12,245 INFO    Thread-16 :1184 [dir_watcher.py:_on_file_modified():292] file/dir modified: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\output.log
+2025-10-19 01:25:12,843 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:25:14,213 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:14,213 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:15,869 DEBUG   SenderThread:1184 [sender.py:send():336] send: stats
+2025-10-19 01:25:16,236 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:16,236 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:16,884 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:25:17,885 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:25:18,254 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:18,254 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:20,332 ERROR   gpu       :1184 [interfaces.py:aggregate():146] Failed to serialize metric: division by zero
+2025-10-19 01:25:20,332 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:20,332 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:21,890 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:25:22,341 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:22,341 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:22,921 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:25:24,351 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:24,351 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:26,373 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:26,373 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:26,923 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:25:27,952 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:25:28,393 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:28,393 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:30,401 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:30,401 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:31,958 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:25:32,402 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:32,402 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:32,986 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:25:34,411 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:34,411 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:36,411 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:36,411 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:36,996 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:25:38,022 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:25:38,417 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:38,417 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:40,422 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:40,422 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:42,024 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:25:42,426 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:42,426 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:43,061 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:25:44,427 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:44,427 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:45,870 DEBUG   SenderThread:1184 [sender.py:send():336] send: stats
+2025-10-19 01:25:46,438 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:46,438 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:47,878 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:25:48,082 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:25:48,442 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:48,442 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:50,483 ERROR   gpu       :1184 [interfaces.py:aggregate():146] Failed to serialize metric: division by zero
+2025-10-19 01:25:50,485 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:50,485 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:52,493 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:52,493 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:52,911 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:25:53,127 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:25:54,509 INFO    Thread-16 :1184 [dir_watcher.py:_on_file_modified():292] file/dir modified: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\output.log
+2025-10-19 01:25:54,519 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:54,519 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:56,522 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:56,524 INFO    Thread-16 :1184 [dir_watcher.py:_on_file_modified():292] file/dir modified: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\output.log
+2025-10-19 01:25:56,524 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:58,179 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:25:58,538 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:58,538 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:25:58,639 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:26:00,548 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:00,548 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:02,565 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:02,565 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:03,222 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:26:03,676 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:26:04,576 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:04,576 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:06,586 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:06,588 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:08,266 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:26:08,595 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Unknown Error
+2025-10-19 01:26:08,595 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Unknown Error
+2025-10-19 01:26:08,595 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:08,595 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:08,697 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:26:10,601 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Unknown Error
+2025-10-19 01:26:10,601 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Unknown Error
+2025-10-19 01:26:10,603 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:10,603 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:12,615 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:12,615 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:13,316 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:26:13,728 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:26:14,617 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:14,617 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:15,875 DEBUG   SenderThread:1184 [sender.py:send():336] send: stats
+2025-10-19 01:26:16,627 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:16,627 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:18,342 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:26:18,636 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:18,636 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:18,889 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:26:20,672 ERROR   gpu       :1184 [interfaces.py:aggregate():146] Failed to serialize metric: division by zero
+2025-10-19 01:26:20,672 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:20,672 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:22,674 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:22,674 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:23,373 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:26:23,912 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:26:24,682 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:24,682 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:26,690 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:26,690 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:28,391 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:26:28,695 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:28,695 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:28,931 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:26:30,697 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:30,697 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:32,703 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:32,703 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:33,419 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:26:33,962 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:26:34,706 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:34,706 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:36,712 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:36,712 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:38,449 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:26:38,720 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:38,720 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:38,994 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:26:40,723 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:40,723 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:42,724 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:42,724 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:43,474 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:26:44,017 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:26:44,732 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:44,732 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:45,883 DEBUG   SenderThread:1184 [sender.py:send():336] send: stats
+2025-10-19 01:26:46,737 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:46,737 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:48,531 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:26:48,759 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:48,759 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:49,033 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:26:50,793 ERROR   gpu       :1184 [interfaces.py:aggregate():146] Failed to serialize metric: division by zero
+2025-10-19 01:26:50,793 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:50,793 ERROR   gpu       :1184 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-19 01:26:50,898 INFO    Thread-16 :1184 [dir_watcher.py:_on_file_modified():292] file/dir modified: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\output.log
+2025-10-19 01:26:51,374 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: partial_history
+2025-10-19 01:26:51,385 DEBUG   SenderThread:1184 [sender.py:send():336] send: history
+2025-10-19 01:26:51,387 DEBUG   SenderThread:1184 [sender.py:send_request():363] send_request: summary_record
+2025-10-19 01:26:51,388 INFO    SenderThread:1184 [sender.py:_save_file():1321] saving file wandb-summary.json with policy end
+2025-10-19 01:26:51,391 DEBUG   SenderThread:1184 [sender.py:send():336] send: telemetry
+2025-10-19 01:26:51,394 DEBUG   SenderThread:1184 [sender.py:send():336] send: exit
+2025-10-19 01:26:51,394 INFO    SenderThread:1184 [sender.py:send_exit():559] handling exit code: 0
+2025-10-19 01:26:51,400 INFO    SenderThread:1184 [sender.py:send_exit():561] handling runtime: 395
+2025-10-19 01:26:51,400 INFO    SenderThread:1184 [sender.py:_save_file():1321] saving file wandb-summary.json with policy end
+2025-10-19 01:26:51,400 INFO    SenderThread:1184 [sender.py:send_exit():567] send defer
+2025-10-19 01:26:51,406 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: defer
+2025-10-19 01:26:51,406 INFO    HandlerThread:1184 [handler.py:handle_request_defer():170] handle defer: 0
+2025-10-19 01:26:51,406 DEBUG   SenderThread:1184 [sender.py:send_request():363] send_request: defer
+2025-10-19 01:26:51,406 INFO    SenderThread:1184 [sender.py:send_request_defer():583] handle sender defer: 0
+2025-10-19 01:26:51,406 INFO    SenderThread:1184 [sender.py:transition_state():587] send defer: 1
+2025-10-19 01:26:51,406 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: defer
+2025-10-19 01:26:51,406 INFO    HandlerThread:1184 [handler.py:handle_request_defer():170] handle defer: 1
+2025-10-19 01:26:51,406 DEBUG   SenderThread:1184 [sender.py:send_request():363] send_request: defer
+2025-10-19 01:26:51,406 INFO    SenderThread:1184 [sender.py:send_request_defer():583] handle sender defer: 1
+2025-10-19 01:26:51,406 INFO    SenderThread:1184 [sender.py:transition_state():587] send defer: 2
+2025-10-19 01:26:51,406 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: defer
+2025-10-19 01:26:51,406 INFO    HandlerThread:1184 [handler.py:handle_request_defer():170] handle defer: 2
+2025-10-19 01:26:51,406 INFO    HandlerThread:1184 [system_monitor.py:finish():161] Stopping system monitor
+2025-10-19 01:26:51,418 DEBUG   SystemMonitor:1184 [system_monitor.py:_start():137] Finished system metrics aggregation loop
+2025-10-19 01:26:51,418 DEBUG   SystemMonitor:1184 [system_monitor.py:_start():141] Publishing last batch of metrics
+2025-10-19 01:26:51,418 INFO    HandlerThread:1184 [interfaces.py:finish():175] Joined cpu
+2025-10-19 01:26:51,418 INFO    HandlerThread:1184 [interfaces.py:finish():175] Joined disk
+2025-10-19 01:26:51,450 ERROR   gpu       :1184 [interfaces.py:aggregate():146] Failed to serialize metric: division by zero
+2025-10-19 01:26:51,450 INFO    HandlerThread:1184 [interfaces.py:finish():175] Joined gpu
+2025-10-19 01:26:51,450 INFO    HandlerThread:1184 [interfaces.py:finish():175] Joined memory
+2025-10-19 01:26:51,450 INFO    HandlerThread:1184 [interfaces.py:finish():175] Joined network
+2025-10-19 01:26:51,450 DEBUG   SenderThread:1184 [sender.py:send_request():363] send_request: defer
+2025-10-19 01:26:51,450 INFO    SenderThread:1184 [sender.py:send_request_defer():583] handle sender defer: 2
+2025-10-19 01:26:51,450 INFO    SenderThread:1184 [sender.py:transition_state():587] send defer: 3
+2025-10-19 01:26:51,450 DEBUG   SenderThread:1184 [sender.py:send():336] send: stats
+2025-10-19 01:26:51,450 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: defer
+2025-10-19 01:26:51,450 INFO    HandlerThread:1184 [handler.py:handle_request_defer():170] handle defer: 3
+2025-10-19 01:26:51,450 DEBUG   SenderThread:1184 [sender.py:send_request():363] send_request: defer
+2025-10-19 01:26:51,450 INFO    SenderThread:1184 [sender.py:send_request_defer():583] handle sender defer: 3
+2025-10-19 01:26:51,450 INFO    SenderThread:1184 [sender.py:transition_state():587] send defer: 4
+2025-10-19 01:26:51,450 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: defer
+2025-10-19 01:26:51,450 INFO    HandlerThread:1184 [handler.py:handle_request_defer():170] handle defer: 4
+2025-10-19 01:26:51,456 DEBUG   SenderThread:1184 [sender.py:send_request():363] send_request: defer
+2025-10-19 01:26:51,456 INFO    SenderThread:1184 [sender.py:send_request_defer():583] handle sender defer: 4
+2025-10-19 01:26:51,456 INFO    SenderThread:1184 [sender.py:transition_state():587] send defer: 5
+2025-10-19 01:26:51,456 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: defer
+2025-10-19 01:26:51,456 INFO    HandlerThread:1184 [handler.py:handle_request_defer():170] handle defer: 5
+2025-10-19 01:26:51,457 DEBUG   SenderThread:1184 [sender.py:send():336] send: summary
+2025-10-19 01:26:51,457 INFO    SenderThread:1184 [sender.py:_save_file():1321] saving file wandb-summary.json with policy end
+2025-10-19 01:26:51,457 DEBUG   SenderThread:1184 [sender.py:send_request():363] send_request: defer
+2025-10-19 01:26:51,457 INFO    SenderThread:1184 [sender.py:send_request_defer():583] handle sender defer: 5
+2025-10-19 01:26:51,457 INFO    SenderThread:1184 [sender.py:transition_state():587] send defer: 6
+2025-10-19 01:26:51,457 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: defer
+2025-10-19 01:26:51,457 INFO    HandlerThread:1184 [handler.py:handle_request_defer():170] handle defer: 6
+2025-10-19 01:26:51,457 DEBUG   SenderThread:1184 [sender.py:send_request():363] send_request: defer
+2025-10-19 01:26:51,457 INFO    SenderThread:1184 [sender.py:send_request_defer():583] handle sender defer: 6
+2025-10-19 01:26:51,457 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:26:51,908 INFO    Thread-16 :1184 [dir_watcher.py:_on_file_modified():292] file/dir modified: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\wandb-summary.json
+2025-10-19 01:26:52,400 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: poll_exit
+2025-10-19 01:26:52,416 INFO    SenderThread:1184 [sender.py:transition_state():587] send defer: 7
+2025-10-19 01:26:52,420 DEBUG   SenderThread:1184 [sender.py:send_request():363] send_request: poll_exit
+2025-10-19 01:26:52,420 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: defer
+2025-10-19 01:26:52,420 INFO    HandlerThread:1184 [handler.py:handle_request_defer():170] handle defer: 7
+2025-10-19 01:26:52,420 DEBUG   SenderThread:1184 [sender.py:send_request():363] send_request: defer
+2025-10-19 01:26:52,420 INFO    SenderThread:1184 [sender.py:send_request_defer():583] handle sender defer: 7
+2025-10-19 01:26:52,922 INFO    Thread-16 :1184 [dir_watcher.py:_on_file_modified():292] file/dir modified: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\config.yaml
+2025-10-19 01:26:52,922 INFO    Thread-16 :1184 [dir_watcher.py:_on_file_modified():292] file/dir modified: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\output.log
+2025-10-19 01:26:53,402 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: poll_exit
+2025-10-19 01:26:54,336 INFO    SenderThread:1184 [sender.py:transition_state():587] send defer: 8
+2025-10-19 01:26:54,336 DEBUG   SenderThread:1184 [sender.py:send_request():363] send_request: poll_exit
+2025-10-19 01:26:54,336 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: defer
+2025-10-19 01:26:54,336 INFO    HandlerThread:1184 [handler.py:handle_request_defer():170] handle defer: 8
+2025-10-19 01:26:54,336 DEBUG   SenderThread:1184 [sender.py:send_request():363] send_request: defer
+2025-10-19 01:26:54,336 INFO    SenderThread:1184 [sender.py:send_request_defer():583] handle sender defer: 8
+2025-10-19 01:26:54,403 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: poll_exit
+2025-10-19 01:26:54,465 INFO    SenderThread:1184 [sender.py:transition_state():587] send defer: 9
+2025-10-19 01:26:54,465 DEBUG   SenderThread:1184 [sender.py:send_request():363] send_request: poll_exit
+2025-10-19 01:26:54,466 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: defer
+2025-10-19 01:26:54,466 INFO    HandlerThread:1184 [handler.py:handle_request_defer():170] handle defer: 9
+2025-10-19 01:26:54,467 DEBUG   SenderThread:1184 [sender.py:send():336] send: artifact
+2025-10-19 01:26:54,925 INFO    Thread-16 :1184 [dir_watcher.py:_on_file_modified():292] file/dir modified: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\output.log
+2025-10-19 01:26:55,409 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: poll_exit
+2025-10-19 01:26:58,490 INFO    wandb-upload_0:1184 [upload_job.py:push():96] Uploaded file C:\Users\USER\AppData\Local\wandb\wandb\artifacts\staging\tmpix0n2f8k
+2025-10-19 01:26:58,501 INFO    wandb-upload_1:1184 [upload_job.py:push():96] Uploaded file C:\Users\USER\AppData\Local\wandb\wandb\artifacts\staging\tmpp0qwk2d1
+2025-10-19 01:27:00,421 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:27:02,999 INFO    SenderThread:1184 [sender.py:send_artifact():1417] sent artifact job-https___github.com_Ravindu-Kuruppuarachchi_Zero-shot-CIR-EN3160-project.git_mainfig.py - {'id': 'QXJ0aWZhY3Q6MjE1MDk4ODk5NA==', 'digest': 'b2ff5fefe1d700bfd54f24fea25aa5a7', 'state': 'PENDING', 'aliases': [], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjc3MjE3ODMzOA==', 'latestArtifact': None}, 'version': 'latest'}
+2025-10-19 01:27:02,999 DEBUG   SenderThread:1184 [sender.py:send_request():363] send_request: defer
+2025-10-19 01:27:02,999 INFO    SenderThread:1184 [sender.py:send_request_defer():583] handle sender defer: 9
+2025-10-19 01:27:02,999 INFO    SenderThread:1184 [dir_watcher.py:finish():362] shutting down directory watcher
+2025-10-19 01:27:02,999 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: status_report
+2025-10-19 01:27:03,985 INFO    SenderThread:1184 [dir_watcher.py:finish():392] scan: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files
+2025-10-19 01:27:03,985 INFO    SenderThread:1184 [dir_watcher.py:finish():406] scan save: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\config.yaml config.yaml
+2025-10-19 01:27:03,985 INFO    SenderThread:1184 [dir_watcher.py:finish():406] scan save: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\output.log output.log
+2025-10-19 01:27:03,989 INFO    SenderThread:1184 [dir_watcher.py:finish():406] scan save: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\requirements.txt requirements.txt
+2025-10-19 01:27:03,993 INFO    SenderThread:1184 [dir_watcher.py:finish():406] scan save: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\wandb-metadata.json wandb-metadata.json
+2025-10-19 01:27:03,993 INFO    SenderThread:1184 [dir_watcher.py:finish():406] scan save: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\wandb-summary.json wandb-summary.json
+2025-10-19 01:27:03,996 INFO    SenderThread:1184 [sender.py:transition_state():587] send defer: 10
+2025-10-19 01:27:03,996 DEBUG   SenderThread:1184 [sender.py:send_request():363] send_request: poll_exit
+2025-10-19 01:27:03,996 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: defer
+2025-10-19 01:27:03,996 INFO    HandlerThread:1184 [handler.py:handle_request_defer():170] handle defer: 10
+2025-10-19 01:27:03,996 DEBUG   SenderThread:1184 [sender.py:send_request():363] send_request: defer
+2025-10-19 01:27:03,996 INFO    SenderThread:1184 [sender.py:send_request_defer():583] handle sender defer: 10
+2025-10-19 01:27:03,996 INFO    SenderThread:1184 [file_pusher.py:finish():162] shutting down file pusher
+2025-10-19 01:27:05,105 INFO    wandb-upload_0:1184 [upload_job.py:push():138] Uploaded file D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\config.yaml
+2025-10-19 01:27:05,450 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-19 01:27:05,453 INFO    wandb-upload_3:1184 [upload_job.py:push():138] Uploaded file D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\wandb-summary.json
+2025-10-19 01:27:05,604 INFO    wandb-upload_2:1184 [upload_job.py:push():138] Uploaded file D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\requirements.txt
+2025-10-19 01:27:05,659 INFO    wandb-upload_1:1184 [upload_job.py:push():138] Uploaded file D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\files\output.log
+2025-10-19 01:27:05,864 INFO    Thread-15 (_thread_body):1184 [sender.py:transition_state():587] send defer: 11
+2025-10-19 01:27:05,864 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: defer
+2025-10-19 01:27:05,864 INFO    HandlerThread:1184 [handler.py:handle_request_defer():170] handle defer: 11
+2025-10-19 01:27:05,866 DEBUG   SenderThread:1184 [sender.py:send_request():363] send_request: defer
+2025-10-19 01:27:05,866 INFO    SenderThread:1184 [sender.py:send_request_defer():583] handle sender defer: 11
+2025-10-19 01:27:05,866 INFO    SenderThread:1184 [file_pusher.py:join():167] waiting for file pusher
+2025-10-19 01:27:05,866 INFO    SenderThread:1184 [sender.py:transition_state():587] send defer: 12
+2025-10-19 01:27:05,866 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: defer
+2025-10-19 01:27:05,866 INFO    HandlerThread:1184 [handler.py:handle_request_defer():170] handle defer: 12
+2025-10-19 01:27:05,866 DEBUG   SenderThread:1184 [sender.py:send_request():363] send_request: defer
+2025-10-19 01:27:05,866 INFO    SenderThread:1184 [sender.py:send_request_defer():583] handle sender defer: 12
+2025-10-19 01:27:07,449 INFO    SenderThread:1184 [sender.py:transition_state():587] send defer: 13
+2025-10-19 01:27:07,449 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: defer
+2025-10-19 01:27:07,449 INFO    HandlerThread:1184 [handler.py:handle_request_defer():170] handle defer: 13
+2025-10-19 01:27:07,449 DEBUG   SenderThread:1184 [sender.py:send_request():363] send_request: defer
+2025-10-19 01:27:07,449 INFO    SenderThread:1184 [sender.py:send_request_defer():583] handle sender defer: 13
+2025-10-19 01:27:07,449 INFO    SenderThread:1184 [sender.py:transition_state():587] send defer: 14
+2025-10-19 01:27:07,449 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: defer
+2025-10-19 01:27:07,449 INFO    HandlerThread:1184 [handler.py:handle_request_defer():170] handle defer: 14
+2025-10-19 01:27:07,449 DEBUG   SenderThread:1184 [sender.py:send():336] send: final
+2025-10-19 01:27:07,449 DEBUG   SenderThread:1184 [sender.py:send():336] send: footer
+2025-10-19 01:27:07,449 DEBUG   SenderThread:1184 [sender.py:send_request():363] send_request: defer
+2025-10-19 01:27:07,449 INFO    SenderThread:1184 [sender.py:send_request_defer():583] handle sender defer: 14
+2025-10-19 01:27:07,449 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: poll_exit
+2025-10-19 01:27:07,449 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: server_info
+2025-10-19 01:27:07,449 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: get_summary
+2025-10-19 01:27:07,449 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: sampled_history
+2025-10-19 01:27:07,459 DEBUG   SenderThread:1184 [sender.py:send_request():363] send_request: poll_exit
+2025-10-19 01:27:07,459 DEBUG   SenderThread:1184 [sender.py:send_request():363] send_request: server_info
+2025-10-19 01:27:07,982 DEBUG   HandlerThread:1184 [handler.py:handle_request():144] handle_request: shutdown
+2025-10-19 01:27:07,982 INFO    HandlerThread:1184 [handler.py:finish():841] shutting down handler
+2025-10-19 01:27:08,462 INFO    WriterThread:1184 [datastore.py:close():299] close: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251019_012013-fgexjhly\run-fgexjhly.wandb
+2025-10-19 01:27:08,985 INFO    SenderThread:1184 [sender.py:finish():1493] shutting down sender
+2025-10-19 01:27:08,985 INFO    SenderThread:1184 [file_pusher.py:finish():162] shutting down file pusher
+2025-10-19 01:27:08,985 INFO    SenderThread:1184 [file_pusher.py:join():167] waiting for file pusher

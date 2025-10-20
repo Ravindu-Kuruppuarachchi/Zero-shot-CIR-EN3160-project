@@ -1,0 +1,27 @@
+
+Running evaluation for dataset: fiq
+  0%|                                                                                                                                                                                                                                                                                                            | 0/5 [00:00<?, ?it/s]
+Only the text encoder will be fine-tuned
+Target pad with target_ratio = 1.25 preprocess pipeline is used
+Laion 'train' dataset initialized with 2000 triplets.
+Looking for images in: D:/Documents 2.0/5th semester/computer vision/Vision Project/laion_cir_template/laion_cir_template
+FashionIQ val - ['dress'] dataset in relative mode initialized
+FashionIQ val - ['dress'] dataset in classic mode initialized
+FashionIQ val - ['toptee'] dataset in relative mode initialized
+FashionIQ val - ['toptee'] dataset in classic mode initialized
+FashionIQ val - ['shirt'] dataset in relative mode initialized
+FashionIQ val - ['shirt'] dataset in classic mode initialized
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:56<00:00, 11.28s/it]
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:19<00:00, 19.44s/it]
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:56<00:00, 14.24s/it]
+Finished precomputing features.
+--- Starting FashionIQ Evaluation-Only Mode ---
+Loading model checkpoint from: D:\Documents 2.0th semester\computer vision\Vision Project\epoch_04_laion_llm.pth
+Error loading model checkpoint: [Errno 22] Invalid argument: 'D:\\Documents 2.0\x05th semester\\computer vision\\Vision Project\\epoch_04_laion_llm.pth'
+Please ensure the model_path is correct and the checkpoint matches the model architecture.
+Finishing wandb run...

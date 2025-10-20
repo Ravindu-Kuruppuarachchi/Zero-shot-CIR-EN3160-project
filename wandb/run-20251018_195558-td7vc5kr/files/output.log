@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\main.py", line 89, in <module>
+    main(cfg)
+  File "D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\main.py", line 26, in main
+    model = get_model(cfg)
+            ^^^^^^^^^^^^^^
+  File "D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\utils.py", line 15, in get_model
+    model = TransAgg(cfg)
+            ^^^^^^^^^^^^^
+  File "D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\model\model.py", line 14, in __init__
+    self.pretrained_model = blip_retrieval(pretrained="/GPFS/data/yikunliu/cache/model_base_retrieval_coco.pth")
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\model\BLIP\models\blip_retrieval.py", line 301, in blip_retrieval
+    model,msg = load_checkpoint(model,pretrained)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\model\BLIP\models\blip.py", line 222, in load_checkpoint
+    raise RuntimeError('checkpoint url or path is invalid')
+RuntimeError: checkpoint url or path is invalid

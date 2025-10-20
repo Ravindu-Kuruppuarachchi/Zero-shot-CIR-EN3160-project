@@ -1,0 +1,26 @@
+2025-10-18 19:19:23,926 INFO    MainThread:21520 [wandb_setup.py:_flush():68] Configure stats pid to 21520
+2025-10-18 19:19:23,926 INFO    MainThread:21520 [wandb_setup.py:_flush():68] Loading settings from C:\Users\USER\.config\wandb\settings
+2025-10-18 19:19:23,926 INFO    MainThread:21520 [wandb_setup.py:_flush():68] Loading settings from D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\settings
+2025-10-18 19:19:23,926 INFO    MainThread:21520 [wandb_setup.py:_flush():68] Loading settings from environment variables: {'_require_service': 'True'}
+2025-10-18 19:19:23,926 INFO    MainThread:21520 [wandb_setup.py:_flush():68] Inferring run settings from compute environment: {'program_relpath': 'main2.py', 'program': 'D:\\Documents 2.0\\5th semester\\computer vision\\Vision Project\\ZS-CIR\\main2.py'}
+2025-10-18 19:19:23,926 INFO    MainThread:21520 [wandb_init.py:_log_setup():492] Logging user logs to D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251018_191923-laq2wyoa\logs\debug.log
+2025-10-18 19:19:23,926 INFO    MainThread:21520 [wandb_init.py:_log_setup():493] Logging internal logs to D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251018_191923-laq2wyoa\logs\debug-internal.log
+2025-10-18 19:19:23,926 INFO    MainThread:21520 [wandb_init.py:init():532] calling init triggers
+2025-10-18 19:19:23,926 INFO    MainThread:21520 [wandb_init.py:init():538] wandb.init called with sweep_config: {}
+config: {'dropout': 0.5, 'num_layers': 2, 'model_name': 'blip', 'device': device(type='cuda'), 'batch_size': 64, 'encoder': 'text', 'laion_type': 'laion_combined', 'transform': 'targetpad', 'target_ratio': 1.25, 'learning_rate': 0.0001, 'weight_decay': 0.05, 'adam_epsilon': 1e-08, 'num_epochs': 100, 'save_best': True, 'use_amp': True, 'validation_frequency': 1, 'comment': 'cirr_TransAgg_finetune_blip_text_combined', 'dataset': 'cirr', 'eval_load_path': 'xxx', 'submission_name': 'cirr_test_finetune_blip_text_combined'}
+2025-10-18 19:19:23,926 INFO    MainThread:21520 [wandb_init.py:init():588] starting backend
+2025-10-18 19:19:23,926 INFO    MainThread:21520 [wandb_init.py:init():592] setting up manager
+2025-10-18 19:19:23,926 INFO    MainThread:21520 [backend.py:_multiprocessing_setup():106] multiprocessing start_methods=spawn, using: spawn
+2025-10-18 19:19:23,926 INFO    MainThread:21520 [wandb_init.py:init():599] backend started and connected
+2025-10-18 19:19:23,939 INFO    MainThread:21520 [wandb_init.py:init():687] updated telemetry
+2025-10-18 19:19:23,990 INFO    MainThread:21520 [wandb_init.py:init():727] communicating run to backend with 60.0 second timeout
+2025-10-18 19:19:24,811 INFO    MainThread:21520 [wandb_run.py:_on_init():2134] communicating current version
+2025-10-18 19:19:25,110 INFO    MainThread:21520 [wandb_run.py:_on_init():2143] got version response upgrade_message: "wandb version 0.22.2 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2025-10-18 19:19:25,110 INFO    MainThread:21520 [wandb_init.py:init():775] starting run threads in backend
+2025-10-18 19:19:25,286 INFO    MainThread:21520 [wandb_run.py:_console_start():2114] atexit reg
+2025-10-18 19:19:25,286 INFO    MainThread:21520 [wandb_run.py:_redirect():1969] redirect: 3
+2025-10-18 19:19:25,286 INFO    MainThread:21520 [wandb_run.py:_redirect():2034] Wrapping output streams.
+2025-10-18 19:19:25,286 INFO    MainThread:21520 [wandb_run.py:_redirect():2059] Redirects installed.
+2025-10-18 19:19:25,286 INFO    MainThread:21520 [wandb_init.py:init():817] run started, returning control to user process
+2025-10-18 19:19:44,610 WARNING MsgRouterThr:21520 [router.py:message_loop():77] message_loop has been closed

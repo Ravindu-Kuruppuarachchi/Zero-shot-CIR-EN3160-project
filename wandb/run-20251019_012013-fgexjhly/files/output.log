@@ -1,0 +1,43 @@
+
+Running evaluation for dataset: fiq
+load checkpoint from D:/Documents 2.0/5th semester/computer vision/Vision Project/model_base_retrieval_coco.pth
+missing keys:
+[]
+Only the text encoder will be fine-tuned
+Target pad with target_ratio = 1.25 preprocess pipeline is used
+Laion train dataset initialized
+FashionIQ val - ['dress'] dataset in relative mode initialized
+FashionIQ val - ['dress'] dataset in classic mode initialized
+FashionIQ val - ['toptee'] dataset in relative mode initialized
+FashionIQ val - ['toptee'] dataset in classic mode initialized
+FashionIQ val - ['shirt'] dataset in relative mode initialized
+FashionIQ val - ['shirt'] dataset in classic mode initialized
+Precomputing FashionIQ validation index features...
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [01:17<00:00, 77.04s/it]
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:22<00:00, 22.09s/it]
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:20<00:00, 20.35s/it]
+Finished precomputing features.
+--- Starting FashionIQ Evaluation-Only Mode ---
+Loading model checkpoint from: D:/Documents 2.0/5th semester/computer vision/Vision Project/fiq_finetune_blip_text_combined.pth
+Model checkpoint loaded successfully.
+Running trainer.eval_fiq()...
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [01:44<00:00, 104.99s/it]
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:44<00:00, 44.15s/it]
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:54<00:00, 54.37s/it]
+--- FashionIQ Evaluation Complete ---
+Recall@10 Results (Order depends on val_dress_types: ['dress', 'toptee', 'shirt']):
+[28.57142984867096, 62.5, 50.0]
+Recall@50 Results (Order depends on val_dress_types: ['dress', 'toptee', 'shirt']):
+[28.57142984867096, 62.5, 50.0]
+Average Recall@10: 47.02
+Average Recall@50: 47.02
+Finishing wandb run...

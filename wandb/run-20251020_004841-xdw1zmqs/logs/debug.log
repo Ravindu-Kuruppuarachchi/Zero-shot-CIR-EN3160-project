@@ -1,0 +1,32 @@
+2025-10-20 00:48:41,082 INFO    MainThread:8560 [wandb_setup.py:_flush():68] Configure stats pid to 8560
+2025-10-20 00:48:41,082 INFO    MainThread:8560 [wandb_setup.py:_flush():68] Loading settings from C:\Users\USER\.config\wandb\settings
+2025-10-20 00:48:41,082 INFO    MainThread:8560 [wandb_setup.py:_flush():68] Loading settings from D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\settings
+2025-10-20 00:48:41,082 INFO    MainThread:8560 [wandb_setup.py:_flush():68] Loading settings from environment variables: {'_require_service': 'True'}
+2025-10-20 00:48:41,082 INFO    MainThread:8560 [wandb_setup.py:_flush():68] Inferring run settings from compute environment: {'program_relpath': 'testbyfig.py', 'program': 'D:\\Documents 2.0\\5th semester\\computer vision\\Vision Project\\ZS-CIR\\testbyfig.py'}
+2025-10-20 00:48:41,082 INFO    MainThread:8560 [wandb_init.py:_log_setup():492] Logging user logs to D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251020_004841-xdw1zmqs\logs\debug.log
+2025-10-20 00:48:41,082 INFO    MainThread:8560 [wandb_init.py:_log_setup():493] Logging internal logs to D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251020_004841-xdw1zmqs\logs\debug-internal.log
+2025-10-20 00:48:41,082 INFO    MainThread:8560 [wandb_init.py:init():532] calling init triggers
+2025-10-20 00:48:41,082 INFO    MainThread:8560 [wandb_init.py:init():538] wandb.init called with sweep_config: {}
+config: {'dropout': 0.5, 'num_layers': 2, 'model_name': 'blip', 'device': device(type='cuda'), 'batch_size': 8, 'encoder': 'text', 'laion_type': 'laion_template', 'transform': 'targetpad', 'target_ratio': 1.25, 'learning_rate': 0.0001, 'weight_decay': 0.05, 'adam_epsilon': 1e-08, 'num_epochs': 20, 'save_best': True, 'use_amp': True, 'validation_frequency': 1, 'comment': 'fiq_test_', 'dataset': 'fiq', 'eval_load_path': 'D:/Documents 2.0/5th semester/computer vision/Vision Project/epoch_05_laion_template.pth', 'submission_name': 'fiq_test_template', 'save_path': '/wandb/2025-10-20-00-48-37_fiq_test__eval_run.pth'}
+2025-10-20 00:48:41,082 INFO    MainThread:8560 [wandb_init.py:init():588] starting backend
+2025-10-20 00:48:41,082 INFO    MainThread:8560 [wandb_init.py:init():592] setting up manager
+2025-10-20 00:48:41,082 INFO    MainThread:8560 [backend.py:_multiprocessing_setup():106] multiprocessing start_methods=spawn, using: spawn
+2025-10-20 00:48:41,082 INFO    MainThread:8560 [wandb_init.py:init():599] backend started and connected
+2025-10-20 00:48:41,094 INFO    MainThread:8560 [wandb_init.py:init():687] updated telemetry
+2025-10-20 00:48:41,151 INFO    MainThread:8560 [wandb_init.py:init():727] communicating run to backend with 60.0 second timeout
+2025-10-20 00:48:42,029 INFO    MainThread:8560 [wandb_run.py:_on_init():2134] communicating current version
+2025-10-20 00:48:42,325 INFO    MainThread:8560 [wandb_run.py:_on_init():2143] got version response upgrade_message: "wandb version 0.22.2 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2025-10-20 00:48:42,325 INFO    MainThread:8560 [wandb_init.py:init():775] starting run threads in backend
+2025-10-20 00:48:42,539 INFO    MainThread:8560 [wandb_run.py:_console_start():2114] atexit reg
+2025-10-20 00:48:42,540 INFO    MainThread:8560 [wandb_run.py:_redirect():1969] redirect: 3
+2025-10-20 00:48:42,540 INFO    MainThread:8560 [wandb_run.py:_redirect():2034] Wrapping output streams.
+2025-10-20 00:48:42,540 INFO    MainThread:8560 [wandb_run.py:_redirect():2059] Redirects installed.
+2025-10-20 00:48:42,541 INFO    MainThread:8560 [wandb_init.py:init():817] run started, returning control to user process
+2025-10-20 01:04:56,492 INFO    MainThread:8560 [wandb_run.py:_finish():1854] finishing run ravindukrashmika-university-of-moratuwa/ZeroShot-CIR-Eval/xdw1zmqs
+2025-10-20 01:04:56,497 INFO    MainThread:8560 [wandb_run.py:_atexit_cleanup():2083] got exitcode: 0
+2025-10-20 01:04:56,502 INFO    MainThread:8560 [wandb_run.py:_restore():2066] restore
+2025-10-20 01:04:56,504 INFO    MainThread:8560 [wandb_run.py:_restore():2072] restore done
+2025-10-20 01:05:07,327 INFO    MainThread:8560 [wandb_run.py:_footer_history_summary_info():3442] rendering history
+2025-10-20 01:05:07,327 INFO    MainThread:8560 [wandb_run.py:_footer_history_summary_info():3474] rendering summary
+2025-10-20 01:05:07,366 INFO    MainThread:8560 [wandb_run.py:_footer_sync_info():3398] logging synced files

@@ -1,0 +1,18 @@
+load checkpoint from D:/Documents 2.0/5th semester/computer vision/Vision Project/model_base_retrieval_coco.pth
+missing keys:
+[]
+Only the text encoder will be fine-tuned
+Target pad with target_ratio = 1.25 preprocess pipeline is used
+Traceback (most recent call last):
+  File "D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\main.py", line 89, in <module>
+    main(cfg)
+  File "D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\main.py", line 43, in main
+    relative_train_dataset, relative_val_dataset, classic_val_dataset = get_laion_cirr_dataset(preprocess, cfg.laion_type)
+                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\utils.py", line 56, in get_laion_cirr_dataset
+    relative_val_dataset = CIRRDataset('val', 'relative', preprocess)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\data\cirr_dataset.py", line 43, in __init__
+    with open(f'{self.cirr_path_prefix}/CIRR/cirr/captions/cap.rc2.{split}.json') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/GPFS/data/yikunliu/CIRR/cirr/captions/cap.rc2.val.json'

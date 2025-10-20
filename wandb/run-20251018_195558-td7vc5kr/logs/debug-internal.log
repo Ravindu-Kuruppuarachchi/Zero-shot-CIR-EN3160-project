@@ -1,0 +1,187 @@
+2025-10-18 19:55:58,877 INFO    StreamThr :28136 [internal.py:wandb_internal():87] W&B internal server running at pid: 28136, started at: 2025-10-18 19:55:58.876664
+2025-10-18 19:55:58,878 DEBUG   HandlerThread:28136 [handler.py:handle_request():144] handle_request: status
+2025-10-18 19:55:58,880 INFO    WriterThread:28136 [datastore.py:open_for_write():85] open: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251018_195558-td7vc5kr\run-td7vc5kr.wandb
+2025-10-18 19:55:58,882 DEBUG   SenderThread:28136 [sender.py:send():336] send: header
+2025-10-18 19:55:58,916 DEBUG   SenderThread:28136 [sender.py:send():336] send: run
+2025-10-18 19:55:59,767 INFO    SenderThread:28136 [dir_watcher.py:__init__():216] watching files in: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251018_195558-td7vc5kr\files
+2025-10-18 19:55:59,767 INFO    SenderThread:28136 [sender.py:_start_run_threads():1067] run started: td7vc5kr with start time 1760797558.87767
+2025-10-18 19:55:59,767 DEBUG   SenderThread:28136 [sender.py:send_request():363] send_request: summary_record
+2025-10-18 19:55:59,767 INFO    SenderThread:28136 [sender.py:_save_file():1321] saving file wandb-summary.json with policy end
+2025-10-18 19:55:59,767 DEBUG   HandlerThread:28136 [handler.py:handle_request():144] handle_request: check_version
+2025-10-18 19:55:59,767 DEBUG   SenderThread:28136 [sender.py:send_request():363] send_request: check_version
+2025-10-18 19:56:00,081 DEBUG   HandlerThread:28136 [handler.py:handle_request():144] handle_request: run_start
+2025-10-18 19:56:00,113 DEBUG   HandlerThread:28136 [system_info.py:__init__():31] System info init
+2025-10-18 19:56:00,113 DEBUG   HandlerThread:28136 [system_info.py:__init__():46] System info init done
+2025-10-18 19:56:00,114 INFO    HandlerThread:28136 [system_monitor.py:start():151] Starting system monitor
+2025-10-18 19:56:00,114 INFO    SystemMonitor:28136 [system_monitor.py:_start():116] Starting system asset monitoring threads
+2025-10-18 19:56:00,114 INFO    HandlerThread:28136 [system_monitor.py:probe():172] Collecting system info
+2025-10-18 19:56:00,121 INFO    SystemMonitor:28136 [interfaces.py:start():168] Started cpu
+2025-10-18 19:56:00,122 INFO    SystemMonitor:28136 [interfaces.py:start():168] Started disk
+2025-10-18 19:56:00,123 INFO    SystemMonitor:28136 [interfaces.py:start():168] Started gpu
+2025-10-18 19:56:00,124 INFO    SystemMonitor:28136 [interfaces.py:start():168] Started memory
+2025-10-18 19:56:00,133 INFO    SystemMonitor:28136 [interfaces.py:start():168] Started network
+2025-10-18 19:56:00,133 DEBUG   HandlerThread:28136 [system_info.py:probe():195] Probing system
+2025-10-18 19:56:00,133 ERROR   gpu       :28136 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-18 19:56:00,133 ERROR   gpu       :28136 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-18 19:56:00,133 DEBUG   HandlerThread:28136 [system_info.py:_probe_git():180] Probing git
+2025-10-18 19:56:00,222 DEBUG   HandlerThread:28136 [system_info.py:_probe_git():188] Probing git done
+2025-10-18 19:56:00,222 DEBUG   HandlerThread:28136 [system_info.py:probe():241] Probing system done
+2025-10-18 19:56:00,222 DEBUG   HandlerThread:28136 [system_monitor.py:probe():181] {'os': 'Windows-10-10.0.26100-SP0', 'python': '3.11.3', 'heartbeatAt': '2025-10-18T14:26:00.133620', 'startedAt': '2025-10-18T14:25:58.860663', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': 'D:\\Documents 2.0\\5th semester\\computer vision\\Vision Project\\ZS-CIR\\main.py', 'codePath': 'main.py', 'git': {'remote': 'https://github.com/Ravindu-Kuruppuarachchi/Zero-shot-CIR-EN3160-project.git', 'commit': '41069f5d79cda2647492b5d0ec30a86f18e3d03e'}, 'email': 'ravindukrashmika@gmail.com', 'root': 'D:/Documents 2.0/5th semester/computer vision/Vision Project/ZS-CIR', 'host': 'DESKTOP-RavinduRashmika', 'username': 'USER', 'executable': 'D:\\Documents 2.0\\5th semester\\computer vision\\Vision Project\\ZS-CIR\\venv\\Scripts\\python.exe', 'cpu_count': 4, 'cpu_count_logical': 8, 'cpu_freq': {'current': 2803.0, 'min': 0.0, 'max': 2803.0}, 'cpu_freq_per_core': [{'current': 2803.0, 'min': 0.0, 'max': 2803.0}], 'disk': {'total': 476.92284774780273, 'used': 247.07969284057617}, 'gpu': 'NVIDIA GeForce MX350', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce MX350', 'memory_total': 2147483648}], 'memory': {'total': 15.74881362915039}}
+2025-10-18 19:56:00,222 INFO    HandlerThread:28136 [system_monitor.py:probe():182] Finished collecting system info
+2025-10-18 19:56:00,222 INFO    HandlerThread:28136 [system_monitor.py:probe():185] Publishing system info
+2025-10-18 19:56:00,222 DEBUG   HandlerThread:28136 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2025-10-18 19:56:00,223 DEBUG   HandlerThread:28136 [system_info.py:_save_pip():67] Saving pip packages done
+2025-10-18 19:56:00,224 INFO    HandlerThread:28136 [system_monitor.py:probe():187] Finished publishing system info
+2025-10-18 19:56:00,230 DEBUG   SenderThread:28136 [sender.py:send():336] send: files
+2025-10-18 19:56:00,230 INFO    SenderThread:28136 [sender.py:_save_file():1321] saving file wandb-metadata.json with policy now
+2025-10-18 19:56:00,237 DEBUG   HandlerThread:28136 [handler.py:handle_request():144] handle_request: stop_status
+2025-10-18 19:56:00,237 DEBUG   SenderThread:28136 [sender.py:send_request():363] send_request: stop_status
+2025-10-18 19:56:00,676 DEBUG   SenderThread:28136 [sender.py:send():336] send: telemetry
+2025-10-18 19:56:00,773 INFO    Thread-16 :28136 [dir_watcher.py:_on_file_created():275] file/dir created: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251018_195558-td7vc5kr\files\wandb-summary.json
+2025-10-18 19:56:00,773 INFO    Thread-16 :28136 [dir_watcher.py:_on_file_created():275] file/dir created: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251018_195558-td7vc5kr\files\requirements.txt
+2025-10-18 19:56:00,774 INFO    Thread-16 :28136 [dir_watcher.py:_on_file_created():275] file/dir created: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251018_195558-td7vc5kr\files\wandb-metadata.json
+2025-10-18 19:56:01,170 INFO    wandb-upload_0:28136 [upload_job.py:push():138] Uploaded file C:\Users\USER\AppData\Local\Temp\tmpeoukn2y9wandb\4kusmmyn-wandb-metadata.json
+2025-10-18 19:56:02,149 ERROR   gpu       :28136 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-18 19:56:02,149 ERROR   gpu       :28136 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-18 19:56:04,161 ERROR   gpu       :28136 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-18 19:56:04,161 ERROR   gpu       :28136 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-18 19:56:04,694 DEBUG   HandlerThread:28136 [handler.py:handle_request():144] handle_request: status_report
+2025-10-18 19:56:06,179 ERROR   gpu       :28136 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-18 19:56:06,179 ERROR   gpu       :28136 [interfaces.py:monitor():129] Failed to sample metric: Not Supported
+2025-10-18 19:56:07,206 DEBUG   SenderThread:28136 [sender.py:send():336] send: exit
+2025-10-18 19:56:07,206 INFO    SenderThread:28136 [sender.py:send_exit():559] handling exit code: 1
+2025-10-18 19:56:07,206 INFO    SenderThread:28136 [sender.py:send_exit():561] handling runtime: 7
+2025-10-18 19:56:07,206 INFO    SenderThread:28136 [sender.py:_save_file():1321] saving file wandb-summary.json with policy end
+2025-10-18 19:56:07,210 INFO    SenderThread:28136 [sender.py:send_exit():567] send defer
+2025-10-18 19:56:07,210 DEBUG   HandlerThread:28136 [handler.py:handle_request():144] handle_request: defer
+2025-10-18 19:56:07,210 INFO    HandlerThread:28136 [handler.py:handle_request_defer():170] handle defer: 0
+2025-10-18 19:56:07,210 DEBUG   SenderThread:28136 [sender.py:send_request():363] send_request: defer
+2025-10-18 19:56:07,212 INFO    SenderThread:28136 [sender.py:send_request_defer():583] handle sender defer: 0
+2025-10-18 19:56:07,212 INFO    SenderThread:28136 [sender.py:transition_state():587] send defer: 1
+2025-10-18 19:56:07,212 DEBUG   HandlerThread:28136 [handler.py:handle_request():144] handle_request: defer
+2025-10-18 19:56:07,212 INFO    HandlerThread:28136 [handler.py:handle_request_defer():170] handle defer: 1
+2025-10-18 19:56:07,212 DEBUG   SenderThread:28136 [sender.py:send_request():363] send_request: defer
+2025-10-18 19:56:07,212 INFO    SenderThread:28136 [sender.py:send_request_defer():583] handle sender defer: 1
+2025-10-18 19:56:07,213 INFO    SenderThread:28136 [sender.py:transition_state():587] send defer: 2
+2025-10-18 19:56:07,213 DEBUG   HandlerThread:28136 [handler.py:handle_request():144] handle_request: defer
+2025-10-18 19:56:07,213 INFO    HandlerThread:28136 [handler.py:handle_request_defer():170] handle defer: 2
+2025-10-18 19:56:07,213 INFO    HandlerThread:28136 [system_monitor.py:finish():161] Stopping system monitor
+2025-10-18 19:56:07,213 DEBUG   SystemMonitor:28136 [system_monitor.py:_start():130] Starting system metrics aggregation loop
+2025-10-18 19:56:07,225 DEBUG   SystemMonitor:28136 [system_monitor.py:_start():137] Finished system metrics aggregation loop
+2025-10-18 19:56:07,225 DEBUG   SystemMonitor:28136 [system_monitor.py:_start():141] Publishing last batch of metrics
+2025-10-18 19:56:07,226 INFO    HandlerThread:28136 [interfaces.py:finish():175] Joined cpu
+2025-10-18 19:56:07,226 INFO    HandlerThread:28136 [interfaces.py:finish():175] Joined disk
+2025-10-18 19:56:07,265 ERROR   gpu       :28136 [interfaces.py:aggregate():146] Failed to serialize metric: division by zero
+2025-10-18 19:56:07,268 INFO    HandlerThread:28136 [interfaces.py:finish():175] Joined gpu
+2025-10-18 19:56:07,268 INFO    HandlerThread:28136 [interfaces.py:finish():175] Joined memory
+2025-10-18 19:56:07,268 INFO    HandlerThread:28136 [interfaces.py:finish():175] Joined network
+2025-10-18 19:56:07,268 DEBUG   SenderThread:28136 [sender.py:send_request():363] send_request: defer
+2025-10-18 19:56:07,268 INFO    SenderThread:28136 [sender.py:send_request_defer():583] handle sender defer: 2
+2025-10-18 19:56:07,268 INFO    SenderThread:28136 [sender.py:transition_state():587] send defer: 3
+2025-10-18 19:56:07,268 DEBUG   SenderThread:28136 [sender.py:send():336] send: stats
+2025-10-18 19:56:07,268 DEBUG   HandlerThread:28136 [handler.py:handle_request():144] handle_request: defer
+2025-10-18 19:56:07,268 INFO    HandlerThread:28136 [handler.py:handle_request_defer():170] handle defer: 3
+2025-10-18 19:56:07,268 DEBUG   SenderThread:28136 [sender.py:send_request():363] send_request: defer
+2025-10-18 19:56:07,268 INFO    SenderThread:28136 [sender.py:send_request_defer():583] handle sender defer: 3
+2025-10-18 19:56:07,268 INFO    SenderThread:28136 [sender.py:transition_state():587] send defer: 4
+2025-10-18 19:56:07,268 DEBUG   HandlerThread:28136 [handler.py:handle_request():144] handle_request: defer
+2025-10-18 19:56:07,268 INFO    HandlerThread:28136 [handler.py:handle_request_defer():170] handle defer: 4
+2025-10-18 19:56:07,268 DEBUG   SenderThread:28136 [sender.py:send_request():363] send_request: defer
+2025-10-18 19:56:07,268 INFO    SenderThread:28136 [sender.py:send_request_defer():583] handle sender defer: 4
+2025-10-18 19:56:07,268 INFO    SenderThread:28136 [sender.py:transition_state():587] send defer: 5
+2025-10-18 19:56:07,270 DEBUG   HandlerThread:28136 [handler.py:handle_request():144] handle_request: defer
+2025-10-18 19:56:07,270 INFO    HandlerThread:28136 [handler.py:handle_request_defer():170] handle defer: 5
+2025-10-18 19:56:07,270 DEBUG   SenderThread:28136 [sender.py:send():336] send: summary
+2025-10-18 19:56:07,270 INFO    SenderThread:28136 [sender.py:_save_file():1321] saving file wandb-summary.json with policy end
+2025-10-18 19:56:07,270 DEBUG   SenderThread:28136 [sender.py:send_request():363] send_request: defer
+2025-10-18 19:56:07,270 INFO    SenderThread:28136 [sender.py:send_request_defer():583] handle sender defer: 5
+2025-10-18 19:56:07,270 INFO    SenderThread:28136 [sender.py:transition_state():587] send defer: 6
+2025-10-18 19:56:07,270 DEBUG   HandlerThread:28136 [handler.py:handle_request():144] handle_request: defer
+2025-10-18 19:56:07,270 INFO    HandlerThread:28136 [handler.py:handle_request_defer():170] handle defer: 6
+2025-10-18 19:56:07,270 DEBUG   SenderThread:28136 [sender.py:send_request():363] send_request: defer
+2025-10-18 19:56:07,270 INFO    SenderThread:28136 [sender.py:send_request_defer():583] handle sender defer: 6
+2025-10-18 19:56:07,274 DEBUG   HandlerThread:28136 [handler.py:handle_request():144] handle_request: status_report
+2025-10-18 19:56:07,745 INFO    SenderThread:28136 [sender.py:transition_state():587] send defer: 7
+2025-10-18 19:56:07,745 DEBUG   HandlerThread:28136 [handler.py:handle_request():144] handle_request: defer
+2025-10-18 19:56:07,745 INFO    HandlerThread:28136 [handler.py:handle_request_defer():170] handle defer: 7
+2025-10-18 19:56:07,745 DEBUG   SenderThread:28136 [sender.py:send_request():363] send_request: defer
+2025-10-18 19:56:07,745 INFO    SenderThread:28136 [sender.py:send_request_defer():583] handle sender defer: 7
+2025-10-18 19:56:07,813 INFO    Thread-16 :28136 [dir_watcher.py:_on_file_modified():292] file/dir modified: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251018_195558-td7vc5kr\files\wandb-summary.json
+2025-10-18 19:56:07,813 INFO    Thread-16 :28136 [dir_watcher.py:_on_file_modified():292] file/dir modified: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251018_195558-td7vc5kr\files\config.yaml
+2025-10-18 19:56:07,813 INFO    Thread-16 :28136 [dir_watcher.py:_on_file_created():275] file/dir created: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251018_195558-td7vc5kr\files\output.log
+2025-10-18 19:56:08,276 DEBUG   HandlerThread:28136 [handler.py:handle_request():144] handle_request: poll_exit
+2025-10-18 19:56:09,208 INFO    SenderThread:28136 [sender.py:transition_state():587] send defer: 8
+2025-10-18 19:56:09,208 DEBUG   SenderThread:28136 [sender.py:send_request():363] send_request: poll_exit
+2025-10-18 19:56:09,208 DEBUG   HandlerThread:28136 [handler.py:handle_request():144] handle_request: defer
+2025-10-18 19:56:09,208 INFO    HandlerThread:28136 [handler.py:handle_request_defer():170] handle defer: 8
+2025-10-18 19:56:09,208 DEBUG   SenderThread:28136 [sender.py:send_request():363] send_request: defer
+2025-10-18 19:56:09,208 INFO    SenderThread:28136 [sender.py:send_request_defer():583] handle sender defer: 8
+2025-10-18 19:56:09,251 INFO    SenderThread:28136 [sender.py:transition_state():587] send defer: 9
+2025-10-18 19:56:09,251 DEBUG   HandlerThread:28136 [handler.py:handle_request():144] handle_request: defer
+2025-10-18 19:56:09,251 INFO    HandlerThread:28136 [handler.py:handle_request_defer():170] handle defer: 9
+2025-10-18 19:56:09,251 DEBUG   SenderThread:28136 [sender.py:send():336] send: artifact
+2025-10-18 19:56:09,280 DEBUG   HandlerThread:28136 [handler.py:handle_request():144] handle_request: poll_exit
+2025-10-18 19:56:09,821 INFO    Thread-16 :28136 [dir_watcher.py:_on_file_modified():292] file/dir modified: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251018_195558-td7vc5kr\files\output.log
+2025-10-18 19:56:11,576 INFO    wandb-upload_0:28136 [upload_job.py:push():96] Uploaded file C:\Users\USER\AppData\Local\wandb\wandb\artifacts\staging\tmp5gxu1g0q
+2025-10-18 19:56:12,550 INFO    wandb-upload_1:28136 [upload_job.py:push():96] Uploaded file C:\Users\USER\AppData\Local\wandb\wandb\artifacts\staging\tmpqusdlemv
+2025-10-18 19:56:14,309 DEBUG   HandlerThread:28136 [handler.py:handle_request():144] handle_request: keepalive
+2025-10-18 19:56:14,734 INFO    SenderThread:28136 [sender.py:send_artifact():1417] sent artifact job-https___github.com_Ravindu-Kuruppuarachchi_Zero-shot-CIR-EN3160-project.git_main.py - {'id': 'QXJ0aWZhY3Q6MjE1MDU0NDU3NQ==', 'digest': '551930fe890d1fbd49fb2d2e0c67c093', 'state': 'PENDING', 'aliases': [], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjc3MjEwNjc2Mg==', 'latestArtifact': None}, 'version': 'latest'}
+2025-10-18 19:56:14,734 DEBUG   SenderThread:28136 [sender.py:send_request():363] send_request: defer
+2025-10-18 19:56:14,734 DEBUG   HandlerThread:28136 [handler.py:handle_request():144] handle_request: status_report
+2025-10-18 19:56:14,734 INFO    SenderThread:28136 [sender.py:send_request_defer():583] handle sender defer: 9
+2025-10-18 19:56:14,736 INFO    SenderThread:28136 [dir_watcher.py:finish():362] shutting down directory watcher
+2025-10-18 19:56:14,833 INFO    SenderThread:28136 [dir_watcher.py:finish():392] scan: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251018_195558-td7vc5kr\files
+2025-10-18 19:56:14,833 INFO    SenderThread:28136 [dir_watcher.py:finish():406] scan save: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251018_195558-td7vc5kr\files\config.yaml config.yaml
+2025-10-18 19:56:14,833 INFO    SenderThread:28136 [dir_watcher.py:finish():406] scan save: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251018_195558-td7vc5kr\files\output.log output.log
+2025-10-18 19:56:14,833 INFO    SenderThread:28136 [dir_watcher.py:finish():406] scan save: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251018_195558-td7vc5kr\files\requirements.txt requirements.txt
+2025-10-18 19:56:14,838 INFO    SenderThread:28136 [dir_watcher.py:finish():406] scan save: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251018_195558-td7vc5kr\files\wandb-metadata.json wandb-metadata.json
+2025-10-18 19:56:14,838 INFO    SenderThread:28136 [dir_watcher.py:finish():406] scan save: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251018_195558-td7vc5kr\files\wandb-summary.json wandb-summary.json
+2025-10-18 19:56:14,840 INFO    SenderThread:28136 [sender.py:transition_state():587] send defer: 10
+2025-10-18 19:56:14,840 DEBUG   SenderThread:28136 [sender.py:send_request():363] send_request: poll_exit
+2025-10-18 19:56:14,840 DEBUG   HandlerThread:28136 [handler.py:handle_request():144] handle_request: defer
+2025-10-18 19:56:14,842 INFO    HandlerThread:28136 [handler.py:handle_request_defer():170] handle defer: 10
+2025-10-18 19:56:14,842 DEBUG   SenderThread:28136 [sender.py:send_request():363] send_request: defer
+2025-10-18 19:56:14,844 INFO    SenderThread:28136 [sender.py:send_request_defer():583] handle sender defer: 10
+2025-10-18 19:56:14,844 INFO    SenderThread:28136 [file_pusher.py:finish():162] shutting down file pusher
+2025-10-18 19:56:15,692 INFO    wandb-upload_2:28136 [upload_job.py:push():138] Uploaded file D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251018_195558-td7vc5kr\files\requirements.txt
+2025-10-18 19:56:15,787 INFO    wandb-upload_0:28136 [upload_job.py:push():138] Uploaded file D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251018_195558-td7vc5kr\files\config.yaml
+2025-10-18 19:56:15,797 INFO    wandb-upload_1:28136 [upload_job.py:push():138] Uploaded file D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251018_195558-td7vc5kr\files\output.log
+2025-10-18 19:56:15,832 INFO    wandb-upload_3:28136 [upload_job.py:push():138] Uploaded file D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251018_195558-td7vc5kr\files\wandb-summary.json
+2025-10-18 19:56:16,043 INFO    Thread-15 (_thread_body):28136 [sender.py:transition_state():587] send defer: 11
+2025-10-18 19:56:16,043 DEBUG   HandlerThread:28136 [handler.py:handle_request():144] handle_request: defer
+2025-10-18 19:56:16,043 INFO    HandlerThread:28136 [handler.py:handle_request_defer():170] handle defer: 11
+2025-10-18 19:56:16,043 DEBUG   SenderThread:28136 [sender.py:send_request():363] send_request: defer
+2025-10-18 19:56:16,043 INFO    SenderThread:28136 [sender.py:send_request_defer():583] handle sender defer: 11
+2025-10-18 19:56:16,043 INFO    SenderThread:28136 [file_pusher.py:join():167] waiting for file pusher
+2025-10-18 19:56:16,043 INFO    SenderThread:28136 [sender.py:transition_state():587] send defer: 12
+2025-10-18 19:56:16,043 DEBUG   HandlerThread:28136 [handler.py:handle_request():144] handle_request: defer
+2025-10-18 19:56:16,043 INFO    HandlerThread:28136 [handler.py:handle_request_defer():170] handle defer: 12
+2025-10-18 19:56:16,043 DEBUG   SenderThread:28136 [sender.py:send_request():363] send_request: defer
+2025-10-18 19:56:16,043 INFO    SenderThread:28136 [sender.py:send_request_defer():583] handle sender defer: 12
+2025-10-18 19:56:16,346 INFO    SenderThread:28136 [sender.py:transition_state():587] send defer: 13
+2025-10-18 19:56:16,346 DEBUG   HandlerThread:28136 [handler.py:handle_request():144] handle_request: defer
+2025-10-18 19:56:16,346 INFO    HandlerThread:28136 [handler.py:handle_request_defer():170] handle defer: 13
+2025-10-18 19:56:16,346 DEBUG   SenderThread:28136 [sender.py:send_request():363] send_request: defer
+2025-10-18 19:56:16,346 INFO    SenderThread:28136 [sender.py:send_request_defer():583] handle sender defer: 13
+2025-10-18 19:56:16,346 INFO    SenderThread:28136 [sender.py:transition_state():587] send defer: 14
+2025-10-18 19:56:16,346 DEBUG   HandlerThread:28136 [handler.py:handle_request():144] handle_request: defer
+2025-10-18 19:56:16,346 INFO    HandlerThread:28136 [handler.py:handle_request_defer():170] handle defer: 14
+2025-10-18 19:56:16,346 DEBUG   SenderThread:28136 [sender.py:send():336] send: final
+2025-10-18 19:56:16,346 DEBUG   SenderThread:28136 [sender.py:send():336] send: footer
+2025-10-18 19:56:16,346 DEBUG   SenderThread:28136 [sender.py:send_request():363] send_request: defer
+2025-10-18 19:56:16,346 INFO    SenderThread:28136 [sender.py:send_request_defer():583] handle sender defer: 14
+2025-10-18 19:56:16,351 DEBUG   HandlerThread:28136 [handler.py:handle_request():144] handle_request: poll_exit
+2025-10-18 19:56:16,351 DEBUG   HandlerThread:28136 [handler.py:handle_request():144] handle_request: server_info
+2025-10-18 19:56:16,351 DEBUG   HandlerThread:28136 [handler.py:handle_request():144] handle_request: get_summary
+2025-10-18 19:56:16,351 DEBUG   HandlerThread:28136 [handler.py:handle_request():144] handle_request: sampled_history
+2025-10-18 19:56:16,351 DEBUG   SenderThread:28136 [sender.py:send_request():363] send_request: poll_exit
+2025-10-18 19:56:16,351 DEBUG   SenderThread:28136 [sender.py:send_request():363] send_request: server_info
+2025-10-18 19:56:16,726 INFO    MainThread:28136 [wandb_run.py:_footer_history_summary_info():3442] rendering history
+2025-10-18 19:56:16,726 INFO    MainThread:28136 [wandb_run.py:_footer_history_summary_info():3474] rendering summary
+2025-10-18 19:56:16,726 INFO    MainThread:28136 [wandb_run.py:_footer_sync_info():3398] logging synced files
+2025-10-18 19:56:16,726 DEBUG   HandlerThread:28136 [handler.py:handle_request():144] handle_request: shutdown
+2025-10-18 19:56:16,728 INFO    HandlerThread:28136 [handler.py:finish():841] shutting down handler
+2025-10-18 19:56:17,358 INFO    WriterThread:28136 [datastore.py:close():299] close: D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\wandb\run-20251018_195558-td7vc5kr\run-td7vc5kr.wandb
+2025-10-18 19:56:17,735 INFO    SenderThread:28136 [sender.py:finish():1493] shutting down sender
+2025-10-18 19:56:17,735 INFO    SenderThread:28136 [file_pusher.py:finish():162] shutting down file pusher
+2025-10-18 19:56:17,735 INFO    SenderThread:28136 [file_pusher.py:join():167] waiting for file pusher
