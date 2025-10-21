@@ -21,7 +21,7 @@ class Config:
     save_best: bool = True 
     use_amp: bool = True 
     validation_frequency: int = 1
-    comment: str = "fiq_test_combined"
+    comment: str = "fiq_test_template"
     dataset: str='fiq' # ['fiq', 'cirr']
     save_path_prefix = "/wandb"
     # eval related
