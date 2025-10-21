@@ -93,7 +93,7 @@ def main(cfg):
     # (1) Define path and load your FIQ model checkpoint
     # !!! IMPORTANT: Replace this path with the actual path to your FIQ model !!!
    # In testbyfig.py inside the main() function
-    model_path = "D:/Documents 2.0/5th semester/computer vision/Vision Project/fiq_finetune_blip_text_combined.pth"
+    model_path = "D:\Documents 2.0\5th semester\computer vision\Vision Project\epoch_04_laion_llm.pth"
     print(f"Loading model checkpoint from: {model_path}")
     # Load the state dict. Ensure the model architecture matches the checkpoint.
     # Use map_location='cpu' if you are loading a GPU-trained model onto a CPU environment
