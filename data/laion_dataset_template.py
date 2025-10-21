@@ -22,11 +22,11 @@ class LaionDataset_Template(Dataset):
 
         # 1. Path to the folder containing your JSON training file
         # This should be the '.../data/files' directory
-        json_folder_path = ""
+        json_folder_path = "D:/Documents 2.0/5th semester/computer vision/Vision Project/ZS-CIR/data/files"
 
         # 2. Path to the folder containing your PNG image files
         # This is the path you provided for the images
-        self.image_path_prefix = ""
+        self.image_path_prefix = "D:/Documents 2.0/5th semester/computer vision/Vision Project/laion_cir_template/laion_cir_template"
 
         # --- END PATH CONFIGURATION ---
 
