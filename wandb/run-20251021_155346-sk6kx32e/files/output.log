@@ -1,0 +1,49 @@
+load checkpoint from D:/Documents 2.0/5th semester/computer vision/Vision Project/model_base_retrieval_coco.pth
+missing keys:
+[]
+Only the text encoder will be fine-tuned
+Target pad with target_ratio = 1.25 preprocess pipeline is used
+Laion 'train' dataset initialized with 2000 triplets.
+Looking for images in: D:/Documents 2.0/5th semester/computer vision/Vision Project/laion_cir_template/laion_cir_template
+FashionIQ val - ['dress'] dataset in relative mode initialized
+FashionIQ val - ['dress'] dataset in classic mode initialized
+FashionIQ val - ['toptee'] dataset in relative mode initialized
+FashionIQ val - ['toptee'] dataset in classic mode initialized
+FashionIQ val - ['shirt'] dataset in relative mode initialized
+FashionIQ val - ['shirt'] dataset in classic mode initialized
+  0%|                                                                                                            | 0/5 [00:00<?, ?it/s]Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x00000252FFA2D620>
+Traceback (most recent call last):
+  File "D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\venv\Lib\site-packages\torch\utils\data\dataloader.py", line 1604, in __del__
+    self._shutdown_workers()
+  File "D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\venv\Lib\site-packages\torch\utils\data\dataloader.py", line 1568, in _shutdown_workers
+    w.join(timeout=_utils.MP_STATUS_CHECK_INTERVAL)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\process.py", line 149, in join
+    res = self._popen.wait(timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\popen_spawn_win32.py", line 109, in wait
+    res = _winapi.WaitForSingleObject(int(self._handle), msecs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt:
+  0%|                                                                                                            | 0/5 [02:47<?, ?it/s]
+Traceback (most recent call last):
+  File "D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\main.py", line 89, in <module>
+    main(cfg)
+  File "D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\main.py", line 60, in main
+    val_index_features, val_index_names, _ = extract_index_features(classic_val_dataset_, model, return_local=False)
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\utils.py", line 114, in extract_index_features
+    batch_features, batch_total_features = model.pretrained_model.encode_image(images, return_local)
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\model\BLIP\models\blip_retrieval.py", line 77, in encode_image
+    image_feat = self.vision_proj(image_embeds[:, 0, :])
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\venv\Lib\site-packages\torch\nn\modules\module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\venv\Lib\site-packages\torch\nn\modules\module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Documents 2.0\5th semester\computer vision\Vision Project\ZS-CIR\venv\Lib\site-packages\torch\nn\modules\linear.py", line 125, in forward
+    return F.linear(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
