@@ -1,0 +1,29 @@
+
+Running evaluation for dataset: fiq
+load checkpoint from D:/Documents 2.0/5th semester/computer vision/Vision Project/model_base_retrieval_coco.pth
+missing keys:
+[]
+Only the text encoder will be fine-tuned
+Target pad with target_ratio = 1.25 preprocess pipeline is used
+Laion 'train' dataset initialized with 2000 triplets.
+Looking for images in: D:/Documents 2.0/5th semester/computer vision/Vision Project/laion_cir_template/laion_cir_template
+FashionIQ val - ['dress'] dataset in relative mode initialized
+FashionIQ val - ['dress'] dataset in classic mode initialized
+FashionIQ val - ['toptee'] dataset in relative mode initialized
+FashionIQ val - ['toptee'] dataset in classic mode initialized
+FashionIQ val - ['shirt'] dataset in relative mode initialized
+FashionIQ val - ['shirt'] dataset in classic mode initialized
+Precomputing FashionIQ validation index features...
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [08:52<00:00, 106.43s/it]
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:24<00:00, 24.19s/it]
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:57<00:00, 14.38s/it]
+Finished precomputing features.
+--- Starting FashionIQ Evaluation-Only Mode ---
+Loading model checkpoint from: D:/Documents 2.0/5th semester/computer vision/Vision Project/epoch_10_laion_combined.pth
+Error loading model checkpoint: Error(s) in loading state_dict for TransAgg:

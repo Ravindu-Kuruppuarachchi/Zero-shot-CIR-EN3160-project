@@ -1,0 +1,16 @@
+
+Running evaluation for dataset: fiq
+load checkpoint from D:/Documents 2.0/5th semester/computer vision/Vision Project/model_base_retrieval_coco.pth
+missing keys:
+[]
+Only the text encoder will be fine-tuned
+Target pad with target_ratio = 1.25 preprocess pipeline is used
+Laion 'train' dataset initialized with 2000 triplets.
+Looking for images in: D:/Documents 2.0/5th semester/computer vision/Vision Project/laion_cir_template/laion_cir_template
+FashionIQ val - ['dress'] dataset in relative mode initialized
+FashionIQ val - ['dress'] dataset in classic mode initialized
+FashionIQ val - ['toptee'] dataset in relative mode initialized
+FashionIQ val - ['toptee'] dataset in classic mode initialized
+FashionIQ val - ['shirt'] dataset in relative mode initialized
+FashionIQ val - ['shirt'] dataset in classic mode initialized
+Precomputing FashionIQ validation index features...

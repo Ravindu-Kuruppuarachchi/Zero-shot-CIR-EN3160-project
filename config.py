@@ -11,7 +11,7 @@ class Config:
     device: torch.device = torch.device('cuda')
     batch_size: int = 8  # you can adjust it according to your GPU memory
     encoder: str = 'text' # ['neither', 'text', 'both']
-    laion_type: str = 'laion_llm' # ['laion_combined', 'laion_template', 'laion_llm'] choose different dataset
+    laion_type: str = 'laion_template' # ['laion_combined', 'laion_template', 'laion_llm'] choose different dataset
     transform: str = 'targetpad'
     target_ratio: float = 1.25
     learning_rate: float = 1e-4
@@ -25,8 +25,8 @@ class Config:
     dataset: str='fiq' # ['fiq', 'cirr']
     save_path_prefix = "/wandb"
     # eval related
-    eval_load_path: str= "D:\Documents 2.0\5th semester\computer vision\Vision Project\epoch_04_laion_llm.pth" 
-    submission_name: str='fiq_test_llm'
+    eval_load_path: str= "D:\Documents 2.0\5th semester\computer vision\Vision Project\epoch_05_laion_template.pth"
+    submission_name: str='fiq_test_template'
 
     # Set this to the folder where you want checkpoints to be saved
     #save_path_prefix: str = "D:/Documents 2.0/5th semester/computer vision/Vision Project/ZS-CIR/runs"
