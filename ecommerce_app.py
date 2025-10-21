@@ -4,6 +4,7 @@ import torch
 from PIL import Image
 from tqdm import tqdm
 from flask import Flask, request, jsonify, render_template_string, url_for, send_from_directory
+import random
 
 # --- Local Project Imports ---
 from config import Config
@@ -14,15 +15,14 @@ import model.clip as clip
 # --- 1. CONFIGURATION ---
 TRAINED_MODEL_PATH = "D:/Documents 2.0/5th semester/computer vision/Vision Project/epoch_10_laion_combined.pth"
 FASHION_IQ_BASE_PATH = "D:/Documents 2.0/5th semester/computer vision/Vision Project/fig"
-# --- EDIT: Define all categories you want to load ---
-CATALOG_CATEGORIES = ['shirt', 'dress']
+# --- EDIT: Added new, empty categories ---
+CATALOG_CATEGORIES = ['shirt', 'dress', 'household', 'toys']
 
 # --- Global Variables ---
 app = Flask(__name__)
 model = None
 preprocess = None
 device = None
-# --- EDIT: Change globals to dictionaries to hold multiple indexes ---
 index_features = {}
 index_paths = {}
 
@@ -33,7 +33,7 @@ HTML_TEMPLATE = """
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visual Style Search</title>
+    <title>Interactive Visual Search</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { font-family: 'Inter', sans-serif; }
@@ -41,21 +41,31 @@ HTML_TEMPLATE = """
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         .product-card:hover .product-image { transform: scale(1.05); }
         .product-card:hover .overlay { opacity: 1; }
-        /* Style for selected radio button label */
         input[type="radio"]:checked + label {
             background-color: #4f46e5;
             color: white;
             border-color: #4f46e5;
         }
+        /* Style for disabled/unavailable category buttons */
+        input[type="radio"]:disabled + label {
+            cursor: not-allowed;
+            background-color: #e5e7eb;
+            border-color: #d1d5db;
+            color: #9ca3af;
+        }
+        .wishlist-btn.active svg { fill: #ef4444; }
+        .animate-fade-in { animation: fadeIn 0.3s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-50">
 
     <!-- Modal for Search -->
     <div id="search-modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50 p-4">
-        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md p-6 relative">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700">&times;</button>
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md p-6 relative animate-fade-in">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 focus:outline-none">&times;</button>
             <h2 class="text-2xl font-bold text-center mb-4">Find a Similar Style</h2>
             <div class="w-full h-48 bg-gray-200 rounded-lg mb-4"><img id="modal-image" src="" class="w-full h-full object-contain rounded-lg"></div>
             <input type="text" id="text-input" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" placeholder="e.g., 'with long sleeves'">
@@ -66,71 +76,132 @@ HTML_TEMPLATE = """
     </div>
 
     <!-- Main Content -->
-    <div class="container mx-auto p-4 md:p-8">
-        <header class="text-center mb-8">
-            <h1 class="text-4xl font-bold text-gray-800">Product Listings</h1>
-            <p class="text-gray-600 mt-1">Click the 'Find Similar' button on any product to start a visual search.</p>
-            
-            <!-- EDIT: Category Selection -->
-            <div id="category-selector" class="mt-4 flex justify-center space-x-2">
-                <!-- Radio buttons will be inserted here by JavaScript -->
-            </div>
+    <div class="container mx-auto">
+        <!-- Header -->
+        <header class="bg-white shadow-sm sticky top-0 z-40">
+            <nav class="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8">
+                <div class="flex items-center gap-x-4">
+                    <a href="#" class="-m-1.5 p-1.5 flex items-center">
+                        <svg class="h-8 w-auto text-indigo-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        <span class="ml-2 text-xl font-bold text-gray-800">StyleNStay</span>
+                    </a>
+                </div>
+                <div class="hidden lg:flex lg:gap-x-12 items-center">
+                     <div id="category-selector" class="flex justify-center space-x-2"></div>
+                </div>
+                <div class="flex items-center gap-x-6">
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 relative">
+                        <i data-lucide="heart"></i>
+                        <span id="wishlist-counter" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 relative">
+                        <i data-lucide="shopping-cart"></i>
+                         <span id="cart-counter" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </a>
+                </div>
+            </nav>
         </header>
 
-        <!-- Product Grid -->
-        <div id="product-gallery" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"></div>
-        <div id="gallery-loader" class="mx-auto loader mt-8"></div>
+        <!-- Hero Banner -->
+        <section class="relative bg-gradient-to-r from-indigo-500 to-purple-500 text-white py-20 px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">Find Exactly What You're Looking For</h1>
+            <p class="mt-4 max-w-2xl mx-auto text-lg text-indigo-100">Visually search for products and modify them with your own words. Your next find is just a search away.</p>
+        </section>
+
+        <main class="max-w-7xl mx-auto p-4 md:p-8">
+            <!-- Filter and Sort Controls -->
+            <div class="flex flex-col md:flex-row justify-between items-center mb-6 bg-white p-4 rounded-lg shadow-sm">
+                <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                    <span class="font-semibold">Filter by:</span>
+                    <button class="filter-btn px-3 py-1 text-sm border rounded-full hover:bg-gray-200" data-filter="trending">Trending</button>
+                    <button class="filter-btn px-3 py-1 text-sm border rounded-full hover:bg-gray-200" data-filter="top-rated">Top Rated</button>
+                    <button class="filter-btn px-3 py-1 text-sm border rounded-full hover:bg-gray-200" data-filter="sale">On Sale</button>
+                </div>
+                <div>
+                    <select id="sort-select" class="border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <option value="latest">Sort by: Latest</option>
+                        <option value="price-asc">Price: Low to High</option>
+                        <option value="price-desc">Price: High to Low</option>
+                        <option value="rating">Highest Rated</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="product-gallery" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"></div>
+            <div id="gallery-loader" class="mx-auto loader mt-8"></div>
+        </main>
     </div>
 
 <script>
     let currentReferenceImage = null;
-    const modal = document.getElementById('search-modal'), modalImage = document.getElementById('modal-image'), textInput = document.getElementById('text-input'), searchBtn = document.getElementById('search-btn'), modalLoader = document.getElementById('modal-loader'), modalError = document.getElementById('modal-error'), productGallery = document.getElementById('product-gallery'), galleryLoader = document.getElementById('gallery-loader'), categorySelector = document.getElementById('category-selector');
+    let allProducts = [];
+    const modal=document.getElementById('search-modal'),modalImage=document.getElementById('modal-image'),textInput=document.getElementById('text-input'),searchBtn=document.getElementById('search-btn'),modalLoader=document.getElementById('modal-loader'),modalError=document.getElementById('modal-error'),productGallery=document.getElementById('product-gallery'),galleryLoader=document.getElementById('gallery-loader'),categorySelector=document.getElementById('category-selector'),wishlistCounter=document.getElementById('wishlist-counter'),cartCounter=document.getElementById('cart-counter'),sortSelect=document.getElementById('sort-select');
+
+    function getSelectedCategory(){return document.querySelector('input[name="category"]:checked')?.value||null}
+    function openModal(a){currentReferenceImage=a;modalImage.src=a;modal.classList.remove('hidden');textInput.value='';modalError.classList.add('hidden')}
+    function closeModal(){modal.classList.add('hidden')}
+
+    async function performSearch(){
+        const a=textInput.value.trim(),b=getSelectedCategory();
+        if(!a){modalError.textContent='Please enter a modification.';modalError.classList.remove('hidden');return}
+        if(!b){modalError.textContent='Please select a category.';modalError.classList.remove('hidden');return}
+        modalLoader.classList.remove('hidden');searchBtn.disabled=!0;modalError.classList.add('hidden');
+        try{const c=await fetch('/visual-search',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({image_path:currentReferenceImage,text:a,category:b})}),d=await c.json();d.error?(modalError.textContent=d.error,modalError.classList.remove('hidden')):d.results&&(allProducts=d.results,displayResults(allProducts),closeModal())}catch(c){modalError.textContent='A network error occurred.';modalError.classList.remove('hidden')}finally{modalLoader.classList.add('hidden');searchBtn.disabled=!1}
+    }
+
+    function displayResults(a){productGallery.innerHTML='';a.forEach(b=>productGallery.appendChild(createProductCard(b)));document.documentElement.scrollTop=0}
     
-    function getSelectedCategory() {
-        const selected = document.querySelector('input[name="category"]:checked');
-        return selected ? selected.value : null;
+    function createProductCard(product) {
+        const card = document.createElement('div');
+        card.className = 'bg-white rounded-lg shadow-md overflow-hidden product-card flex flex-col';
+        
+        let badgeHTML = '';
+        if (product.badge.text) {
+            const color = product.badge.type === 'sale' ? 'bg-red-500' : product.badge.type === 'new' ? 'bg-blue-500' : 'bg-yellow-500';
+            badgeHTML = `<div class="absolute top-2 left-2 text-xs font-bold text-white px-2 py-1 rounded-full ${color}">${product.badge.text}</div>`;
+        }
+
+        const starHTML = Array(5).fill(0).map((_, i) => i < Math.floor(product.rating) ? '<i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>' : '<i data-lucide="star" class="w-4 h-4 text-gray-300"></i>').join('');
+
+        card.innerHTML = `
+            <div class="relative aspect-square overflow-hidden">
+                <img src="${product.path}" class="w-full h-full object-cover product-image transition-transform duration-300">
+                ${badgeHTML}
+                <button class="absolute top-2 right-2 text-gray-300 hover:text-red-500 wishlist-btn" onclick="toggleWishlist(this, event)">
+                    <i data-lucide="heart" class="w-6 h-6"></i>
+                </button>
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300 overlay">
+                    <button class="bg-white text-gray-800 font-semibold py-2 px-4 rounded-full text-sm" onclick="openModal('${product.path}')">Find Similar</button>
+                </div>
+            </div>
+            <div class="p-4 flex flex-col flex-grow">
+                <h3 class="font-semibold text-sm text-gray-700 truncate">${product.name}</h3>
+                <div class="flex items-center mt-2">
+                    <div class="flex">${starHTML}</div>
+                    <span class="text-xs text-gray-500 ml-2">(${product.reviews})</span>
+                </div>
+                <div class="mt-2 flex items-baseline gap-x-2">
+                    <span class="text-lg font-bold text-gray-800">$${product.price.toFixed(2)}</span>
+                    <span class="text-sm text-gray-500 line-through">$${product.originalPrice.toFixed(2)}</span>
+                </div>
+                <p class="text-xs text-gray-500 mt-1">${product.sold} sold</p>
+                <button class="w-full mt-4 bg-indigo-100 text-indigo-700 font-semibold py-2 rounded-lg hover:bg-indigo-200 transition text-sm" onclick="addToCart(event)">Add to Cart</button>
+            </div>
+        `;
+        lucide.createIcons();
+        return card;
     }
 
-    function openModal(imageSrc) {
-        currentReferenceImage = imageSrc;
-        modalImage.src = imageSrc;
-        modal.classList.remove('hidden');
-        textInput.value = '';
-        modalError.classList.add('hidden');
+    function toggleWishlist(btn, event) {
+        event.stopPropagation();
+        btn.classList.toggle('active');
+        const isWished = btn.classList.contains('active');
+        wishlistCounter.textContent = parseInt(wishlistCounter.textContent) + (isWished ? 1 : -1);
     }
-
-    function closeModal() {
-        modal.classList.add('hidden');
-    }
-
-    async function performSearch() {
-        const text = textInput.value.trim();
-        const category = getSelectedCategory();
-        if (!text) { modalError.textContent = 'Please enter a modification.'; modalError.classList.remove('hidden'); return; }
-        if (!category) { modalError.textContent = 'Please select a category.'; modalError.classList.remove('hidden'); return; }
-
-        modalLoader.classList.remove('hidden'); searchBtn.disabled = true; modalError.classList.add('hidden');
-
-        try {
-            const response = await fetch('/visual-search', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ image_path: currentReferenceImage, text: text, category: category }) });
-            const data = await response.json();
-            if (data.error) { modalError.textContent = data.error; modalError.classList.remove('hidden'); } else if (data.results) { displayResults(data.results); closeModal(); }
-        } catch (err) { modalError.textContent = 'A network error occurred.'; modalError.classList.remove('hidden'); } finally { modalLoader.classList.add('hidden'); searchBtn.disabled = false; }
-    }
-
-    function displayResults(imagePaths) {
-        productGallery.innerHTML = '';
-        imagePaths.forEach(path => productGallery.appendChild(createProductCard(path)));
-        document.documentElement.scrollTop = 0;
-    }
-
-    function createProductCard(imagePath) {
-        const card = document.createElement('div'); card.className = 'bg-white rounded-lg shadow-md overflow-hidden product-card';
-        const imageContainer = document.createElement('div'); imageContainer.className = 'relative aspect-square overflow-hidden';
-        const img = document.createElement('img'); img.src = imagePath; img.className = 'w-full h-full object-cover product-image transition-transform duration-300';
-        const overlay = document.createElement('div'); overlay.className = 'absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300 overlay';
-        const button = document.createElement('button'); button.textContent = 'Find Similar'; button.className = 'bg-white text-gray-800 font-semibold py-2 px-4 rounded-full text-sm'; button.onclick = () => openModal(imagePath);
-        overlay.appendChild(button); imageContainer.appendChild(img); imageContainer.appendChild(overlay); card.appendChild(imageContainer); return card;
+    
+    function addToCart(event) {
+        event.stopPropagation();
+        cartCounter.textContent = parseInt(cartCounter.textContent) + 1;
     }
 
     async function loadInitialProducts(category) {
@@ -139,43 +210,67 @@ HTML_TEMPLATE = """
         try {
             const response = await fetch(`/get-initial-products?category=${category}`);
             const data = await response.json();
-            if (data.products) { displayResults(data.products); }
+            if (data.products) { allProducts = data.products; displayResults(allProducts); }
         } finally {
             galleryLoader.classList.add('hidden');
         }
     }
 
+    function sortProducts(sortBy) {
+        let sorted = [...allProducts];
+        if (sortBy === 'price-asc') sorted.sort((a,b) => a.price - b.price);
+        else if (sortBy === 'price-desc') sorted.sort((a,b) => b.price - a.price);
+        else if (sortBy === 'rating') sorted.sort((a,b) => b.rating - a.rating);
+        displayResults(sorted);
+    }
+    
+    sortSelect.addEventListener('change', (e) => sortProducts(e.target.value));
     searchBtn.addEventListener('click', performSearch);
     
     window.addEventListener('DOMContentLoaded', async () => {
-        // Fetch available categories and build selector
+        lucide.createIcons();
         const response = await fetch('/get-categories');
         const data = await response.json();
         const categories = data.categories || [];
         
-        categories.forEach((cat, index) => {
-            const radioId = `cat-${cat}`;
-            const radio = document.createElement('input');
-            radio.type = 'radio';
-            radio.id = radioId;
-            radio.name = 'category';
-            radio.value = cat;
-            radio.className = 'hidden';
-            if (index === 0) radio.checked = true; // Select first category by default
+        let firstAvailableCategory = null;
 
-            radio.onchange = () => loadInitialProducts(cat);
+        categories.forEach((catInfo, index) => {
+            const radioId = `cat-${catInfo.name}`;
+            const radio = document.createElement('input');
+            radio.type = 'radio'; radio.id = radioId; radio.name = 'category'; radio.value = catInfo.name; radio.className = 'hidden';
+            
+            if (catInfo.available && !firstAvailableCategory) {
+                firstAvailableCategory = catInfo.name;
+                radio.checked = true;
+            }
+
+            radio.onchange = () => {
+                if (catInfo.available) {
+                    loadInitialProducts(catInfo.name);
+                } else {
+                    galleryLoader.classList.add('hidden');
+                    productGallery.innerHTML = `<div class='col-span-full text-center p-10 bg-gray-100 rounded-lg'>
+                        <h3 class='text-xl font-semibold text-gray-700'>Coming Soon!</h3>
+                        <p class='text-gray-500 mt-2'>The '${catInfo.name}' category is under construction.</p>
+                    </div>`;
+                }
+            };
             
             const label = document.createElement('label');
-            label.htmlFor = radioId;
-            label.textContent = cat.charAt(0).toUpperCase() + cat.slice(1);
-            label.className = 'px-4 py-2 border rounded-full cursor-pointer transition-colors';
+            label.htmlFor = radioId; label.textContent = catInfo.name.charAt(0).toUpperCase() + catInfo.name.slice(1);
+            if(catInfo.available) {
+                label.className = 'px-4 py-2 border rounded-full cursor-pointer transition-colors';
+            } else {
+                label.className = 'px-4 py-2 border border-gray-300 bg-gray-100 text-gray-400 rounded-full cursor-not-allowed';
+            }
 
             categorySelector.appendChild(radio);
             categorySelector.appendChild(label);
         });
 
-        if (categories.length > 0) {
-            loadInitialProducts(categories[0]);
+        if (firstAvailableCategory) {
+            loadInitialProducts(firstAvailableCategory);
         } else {
             galleryLoader.classList.add('hidden');
             productGallery.innerHTML = '<p class="text-center text-gray-500 col-span-full">No product categories loaded.</p>';
@@ -199,52 +294,60 @@ class GalleryDataset(torch.utils.data.Dataset):
             return self.preprocess_fn(image)
         except Exception: return None
 
+def generate_product_details(image_path):
+    """Generates random mock data for a product."""
+    original_price = random.uniform(25.0, 150.0)
+    discount = random.uniform(0.1, 0.4) if random.random() > 0.5 else 0
+    price = original_price * (1 - discount)
+    
+    badge_type = 'none'
+    badge_text = ''
+    if discount > 0:
+        badge_type = 'sale'
+        badge_text = f"{int(discount * 100)}% OFF"
+    elif random.random() > 0.8:
+        badge_type = 'new'
+        badge_text = 'New'
+    elif random.random() > 0.7:
+        badge_type = 'trending'
+        badge_text = 'Trending'
+
+    return {
+        'path': url_for('serve_product_image', filename=os.path.basename(image_path)),
+        'name': os.path.basename(image_path).replace('.jpg', '').replace('_', ' ').title(),
+        'price': price,
+        'originalPrice': original_price,
+        'rating': round(random.uniform(3.5, 5.0) * 2) / 2, # Round to nearest 0.5
+        'reviews': random.randint(10, 500),
+        'sold': random.randint(100, 10000),
+        'badge': { 'type': badge_type, 'text': badge_text }
+    }
+
 def load_model_and_index():
-    """Loads the model and pre-computes the product catalog index for multiple categories."""
+    """Loads model and pre-computes indexes for multiple categories."""
     global model, preprocess, device, index_features, index_paths
     print("--- Initializing E-commerce Visual Search ---")
-    cfg = Config()
-    cfg.model_name = "clip-Vit-B/32"
-    cfg.encoder = "text"
-    device = cfg.device
+    cfg = Config(); cfg.model_name = "clip-Vit-B/32"; cfg.encoder = "text"; device = cfg.device
     print(f"Using device: {device}")
-    model = TransAgg(cfg)
-    model = model.to(device)
-    if not os.path.exists(TRAINED_MODEL_PATH):
-        raise FileNotFoundError(f"Trained model not found at: {TRAINED_MODEL_PATH}. Please update the path.")
+    model = TransAgg(cfg); model = model.to(device)
+    if not os.path.exists(TRAINED_MODEL_PATH): raise FileNotFoundError(f"Trained model not found at: {TRAINED_MODEL_PATH}")
     print(f"Loading trained weights from: {TRAINED_MODEL_PATH}")
     model.load_state_dict(torch.load(TRAINED_MODEL_PATH, map_location=device), strict=False)
-    model.eval()
-    print("Model loaded successfully.")
+    model.eval(); print("Model loaded successfully.")
     input_dim = model.pretrained_model.visual.input_resolution
     preprocess = get_preprocess(cfg, model, input_dim)
     
-    # --- EDIT: Loop through all defined categories and build an index for each ---
     for category in CATALOG_CATEGORIES:
         print(f"\n--- Building index for category: '{category}' ---")
         gallery_path = os.path.join(FASHION_IQ_BASE_PATH, 'Fashion-IQ', 'fashion-iq', 'images')
-        if not os.path.isdir(gallery_path):
-            print(f"Warning: Product image directory not found: {gallery_path}")
-            continue
-
         split_file = os.path.join(FASHION_IQ_BASE_PATH, 'Fashion-IQ', 'fashion-iq', 'image_splits', f'split.{category}.val.json')
-        if not os.path.exists(split_file):
-            print(f"Warning: Split file not found for category '{category}' at {split_file}. Skipping.")
-            continue
-            
-        with open(split_file, 'r') as f:
-            category_image_names = json.load(f)
-
+        if not os.path.exists(split_file): print(f"Warning: Split file for '{category}' not found. Skipping."); continue
+        with open(split_file, 'r') as f: category_image_names = json.load(f)
         all_image_paths = [os.path.join(gallery_path, name + ".jpg") for name in category_image_names]
         valid_image_paths = [p for p in all_image_paths if os.path.exists(p)]
-        
-        if not valid_image_paths:
-            print(f"Warning: No valid images found for category '{category}'. Check paths.")
-            continue
-
+        if not valid_image_paths: print(f"Warning: No valid images found for '{category}'."); continue
         dataset = GalleryDataset(valid_image_paths, preprocess)
         dataloader = torch.utils.data.DataLoader(dataset, batch_size=64, num_workers=0, collate_fn=collate_fn)
-        
         features_list = []
         with torch.no_grad():
             for batch_images in tqdm(dataloader, desc=f"Indexing {category}"):
@@ -252,80 +355,56 @@ def load_model_and_index():
                 encoded_output = model.pretrained_model.encode_image(batch_images)
                 features = encoded_output[0] if isinstance(encoded_output, tuple) else encoded_output
                 features_list.append(features.cpu())
-        
-        if not features_list:
-            print(f"Warning: No features could be extracted for '{category}'.")
-            continue
-
+        if not features_list: continue
         index_features[category] = torch.cat(features_list, dim=0).to(device)
         index_paths[category] = valid_image_paths
         print(f"'{category}' index created with {len(valid_image_paths)} items.")
-
     print("\n--- Application Ready ---")
 
 @app.route('/')
-def home():
-    return render_template_string(HTML_TEMPLATE)
+def home(): return render_template_string(HTML_TEMPLATE)
 
 @app.route('/get-categories')
 def get_categories():
-    """Returns the list of available product categories."""
-    return jsonify({'categories': list(index_features.keys())})
+    """Returns all potential categories and whether they are available."""
+    category_status = []
+    for cat in CATALOG_CATEGORIES:
+        category_status.append({'name': cat, 'available': cat in index_features})
+    return jsonify({'categories': category_status})
 
 @app.route('/get-initial-products')
 def get_initial_products():
     category = request.args.get('category', default=CATALOG_CATEGORIES[0], type=str)
-    if category not in index_paths:
-        return jsonify({'error': 'Invalid category'}), 400
-        
-    num_products = 50
-    paths_for_category = index_paths[category]
+    if category not in index_paths: return jsonify({'error': 'Invalid category'}), 400
+    num_products = 50; paths_for_category = index_paths[category]
     if not paths_for_category: return jsonify({'products': []})
-    
     random_indices = torch.randperm(len(paths_for_category))[:num_products]
-    product_urls = [url_for('serve_product_image', filename=os.path.basename(paths_for_category[i])) for i in random_indices]
-    return jsonify({'products': product_urls})
+    products = [generate_product_details(paths_for_category[i]) for i in random_indices]
+    return jsonify({'products': products})
 
 @app.route('/visual-search', methods=['POST'])
 def visual_search():
     data = request.get_json()
-    image_url = data.get('image_path')
-    mod_text = data.get('text')
-    category = data.get('category')
-
-    if not all([image_url, mod_text, category]):
-        return jsonify({'error': 'Missing image, text, or category'}), 400
-
-    if category not in index_features:
-        return jsonify({'error': 'Selected category index is not available'}), 400
-        
+    image_url, mod_text, category = data.get('image_path'), data.get('text'), data.get('category')
+    if not all([image_url, mod_text, category]): return jsonify({'error': 'Missing data'}), 400
+    if category not in index_features: return jsonify({'error': 'Category not available'}), 400
     try:
         image_filename = os.path.basename(image_url)
         reference_image_path = os.path.join(FASHION_IQ_BASE_PATH, 'Fashion-IQ', 'fashion-iq', 'images', image_filename)
         image = Image.open(reference_image_path).convert("RGB")
         preprocessed_image = preprocess(image).unsqueeze(0).to(device)
-        
         with torch.no_grad():
             query_feature = model.combine_features(preprocessed_image, [mod_text])
             query_feature /= query_feature.norm(dim=-1, keepdim=True)
-            
-        # --- Select the correct index based on the chosen category ---
-        current_index_features = index_features[category]
-        current_index_paths = index_paths[category]
-        
+        current_index_features = index_features[category]; current_index_paths = index_paths[category]
         normalized_index = current_index_features / current_index_features.norm(dim=-1, keepdim=True)
-        
-        query_feature_float32 = query_feature.to(torch.float32)
-        normalized_index_float32 = normalized_index.to(torch.float32)
-
-        similarities = (query_feature_float32 @ normalized_index_float32.T).squeeze(0)
-
+        similarities = (query_feature.to(torch.float32) @ normalized_index.to(torch.float32).T).squeeze(0)
         top_k_indices = torch.topk(similarities, k=20).indices
-        result_urls = [url_for('serve_product_image', filename=os.path.basename(current_index_paths[i])) for i in top_k_indices]
-        return jsonify({'results': result_urls})
+        results = [generate_product_details(current_index_paths[i]) for i in top_k_indices]
+        return jsonify({'results': results})
     except Exception as e:
         print(f"Error during search: {e}")
-        return jsonify({'error': 'Failed to process search request.'}), 500
+        return jsonify({'error': 'Failed to process request.'}), 500
 
 @app.route('/products/<path:filename>')
 def serve_product_image(filename):
@@ -333,8 +412,7 @@ def serve_product_image(filename):
     return send_from_directory(image_dir, filename)
 
 if __name__ == '__main__':
-    if os.name == 'nt':
-        torch.multiprocessing.freeze_support()
+    if os.name == 'nt': torch.multiprocessing.freeze_support()
     load_model_and_index()
     app.run(host='0.0.0.0', port=5000, debug=False)
 
