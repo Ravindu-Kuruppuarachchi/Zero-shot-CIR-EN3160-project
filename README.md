@@ -1,6 +1,10 @@
-# Zero-Shot Composed Image Retrieval for Fashion
+# StyleNStay: Zero-Shot Composed Image Retrieval for Fashion
 
-This project is an implementation and exploration of the concepts from the paper "Zero-shot Composed Text-Image Retrieval". Our primary goal is to train a model for Composed Image Retrieval (CIR) specifically tailored for the fashion domain and evaluate its performance on the FashionIQ benchmark dataset.
+This project implements and extends concepts from the paper **"Zero-shot Composed Text-Image Retrieval"** to create **StyleNStay**, an interactive web application for fashion discovery. It allows users to search for clothing items using a reference image and natural language modifications, leveraging a specialized `TransAgg` model trained for the fashion domain.
+
+## Overview
+
+**Composed Image Retrieval (CIR)** aims to find images matching a reference image modified according to a text description. This project focuses on a **zero-shot** approach, training on automatically generated data (`Laion-CIR-Template`, 'Laion-CIR-LLM', 'Laion-CIR-Combined') and evaluating on the `FashionIQ` benchmark without specific fine-tuning on it.
 
 ## Core Concept: Composed Image Retrieval (CIR)
 
@@ -15,27 +19,45 @@ This project focuses on a **zero-shot approach**, where we train the model on a 
 
 ## Project Workflow
 
-To improve the model's performance on the fashion-specific task, we implemented a data curation pipeline before training.
+### 1. Training
 
-### 1. Data Curation: Creating a Domain-Specific Subset
+We trained the `TransAgg` model (using a BLIP backbone) on the complete `Laion-CIR-Combined` dataset, which comprises all 32,000 triplets from the combined `Laion-CIR-Template` and `Laion-CIR-LLM` datasets. This extensive training allows the model to learn robust zero-shot generalization.
 
-Instead of training on the full, generic 16,000 triplets from the Laion-CIR-Template dataset, we filtered it to create a smaller, more relevant training set focused on fashion.
+-   **Model:** The `TransAgg` architecture with a BLIP backbone was used.
+-   **Dataset:** `Laion-CIR-Combined` (incorporating `Laion-CIR-Template` and `Laion-CIR-LLM`).
+-   **Configuration:** All training parameters (batch size, learning rate, epochs, file paths) were managed via `config.py`.
+-   **Validation:** During training, the model's performance was validated against the standard `FashionIQ` validation set after each epoch. The best-performing checkpoint was saved.
 
-**Keyword Filtering:** We developed a script (`Selectkeywords.py`) with an extensive list of fashion-related keywords (e.g., 'dress', 'shirt', 'sleeve', 'pattern', 'black', 'leather'). This script processes the `laion_template_info.json` file and saves all triplets containing at least one of these keywords into a new file: `laion_template_fashion_all_matches.json`.
-
-**Random Sampling:** From the filtered fashion-specific triplets, we created a second script (`random_sampler.py`) to randomly select a manageable subset of 2,000 triplets. This balances domain relevance with a practical dataset size for training on limited hardware. The final training file is `fashion_train_subset_2000.json`.
-
-### 2. Training
-
-We trained the TransAgg model on our curated `fashion_train_subset_2000.json` dataset.
-
-- **Model:** The TransAgg architecture with a BLIP backbone was used
-- **Configuration:** All training parameters (batch size, learning rate, epochs, file paths) were managed via `config.py`
-- **Validation:** During training, the model's performance was validated against the standard FashionIQ validation set after each epoch. The best-performing checkpoint was saved
-
-### 3. Evaluation
+### 2. Evaluation
 
 After training, we evaluated the final model's performance by running it on the FashionIQ validation set in an evaluation-only mode. This involved modifying the `main.py` script to load our trained checkpoint and execute the `trainer.eval_fiq()` function, which calculates the final Recall@10 and Recall@50 metrics.
+
+## ✨ Application Showcase: StyleNStay ✨
+
+StyleNStay demonstrates the practical application of the trained model. Users can browse products, select an item, and describe modifications to find similar items matching their specific criteria.
+
+**Main Interface:**
+<div align="center">
+ 
+![User Interface](Images/UI(1).png)
+
+</div>
+
+
+* Displays product listings with dynamic pricing, ratings, badges, and wishlist/cart buttons.
+* Allows filtering by category (Shirts, Dresses, etc.).
+* Includes sorting options (Latest, Price, Rating).
+
+**Visual Search Modal:**
+<div align="center">
+ 
+![User Interface](Images/UI(2).png)
+
+</div>
+* Activated by clicking "Find Similar" on a product.
+* Shows the selected reference image.
+* Provides a text box for users to enter modifications (e.g., "make it sleeveless", "change color to blue").
+* Initiates the visual search using the trained `TransAgg` model.
 
 ## How to Use This Repository
 
@@ -111,3 +133,4 @@ The final Recall scores will be printed to the console.
 ## Acknowledgements
 
 This work is based on the official implementation of the paper "Zero-shot Composed Text-Image Retrieval" by Yikun Liu, Jiangchao Yao, Ya Zhang, Yanfeng Wang, and Weidi Xie.
+
