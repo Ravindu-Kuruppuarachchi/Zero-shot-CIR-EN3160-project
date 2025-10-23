@@ -324,7 +324,7 @@ def generate_product_details(image_path):
     }
 
 def load_model_and_index():
-    """Loads model and pre-computes indexes for multiple categories."""
+    """Loads model and pre-computes indexes for multiple categories"""
     global model, preprocess, device, index_features, index_paths
     print("--- Initializing E-commerce Visual Search ---")
     cfg = Config(); cfg.model_name = "clip-Vit-B/32"; cfg.encoder = "text"; device = cfg.device
