@@ -15,10 +15,9 @@ import model.clip as clip
 # --- 1. CONFIGURATION ---
 TRAINED_MODEL_PATH = "D:/Documents 2.0/5th semester/computer vision/Vision Project/epoch_10_laion_combined.pth"
 FASHION_IQ_BASE_PATH = "D:/Documents 2.0/5th semester/computer vision/Vision Project/fig"
-# --- EDIT: Added new, empty categories ---
 CATALOG_CATEGORIES = ['shirt', 'dress', 'household', 'toys']
 
-# --- Global Variables ---
+# --- Global Variables & App State ---
 app = Flask(__name__)
 model = None
 preprocess = None
@@ -26,14 +25,18 @@ device = None
 index_features = {}
 index_paths = {}
 
-# --- HTML & Frontend Template ---
+cart_items = {} # Will store { 'product_name': {'details': product_info, 'quantity': count} }
+wishlist_items = set() # Will store product names
+
+# --- HTML & Frontend Templates ---
+# Main Home Page Template
 HTML_TEMPLATE = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Visual Search</title>
+    <title>StyleNStay - Visual Search</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { font-family: 'Inter', sans-serif; }
@@ -46,14 +49,7 @@ HTML_TEMPLATE = """
             color: white;
             border-color: #4f46e5;
         }
-        /* Style for disabled/unavailable category buttons */
-        input[type="radio"]:disabled + label {
-            cursor: not-allowed;
-            background-color: #e5e7eb;
-            border-color: #d1d5db;
-            color: #9ca3af;
-        }
-        .wishlist-btn.active svg { fill: #ef4444; }
+        .wishlist-btn.active svg { fill: #ef4444; color: #ef4444; }
         .animate-fade-in { animation: fadeIn 0.3s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
     </style>
@@ -81,8 +77,8 @@ HTML_TEMPLATE = """
         <header class="bg-white shadow-sm sticky top-0 z-40">
             <nav class="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8">
                 <div class="flex items-center gap-x-4">
-                    <a href="#" class="-m-1.5 p-1.5 flex items-center">
-                        <svg class="h-8 w-auto text-indigo-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <a href="/" class="-m-1.5 p-1.5 flex items-center">
+                        <svg class="h-8 w-auto text-indigo-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                         <span class="ml-2 text-xl font-bold text-gray-800">StyleNStay</span>
                     </a>
                 </div>
@@ -90,11 +86,11 @@ HTML_TEMPLATE = """
                      <div id="category-selector" class="flex justify-center space-x-2"></div>
                 </div>
                 <div class="flex items-center gap-x-6">
-                    <a href="#" class="text-gray-600 hover:text-indigo-600 relative">
+                    <a href="/wishlist" class="text-gray-600 hover:text-indigo-600 relative">
                         <i data-lucide="heart"></i>
                         <span id="wishlist-counter" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
                     </a>
-                    <a href="#" class="text-gray-600 hover:text-indigo-600 relative">
+                    <a href="/cart" class="text-gray-600 hover:text-indigo-600 relative">
                         <i data-lucide="shopping-cart"></i>
                          <span id="cart-counter" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
                     </a>
@@ -109,7 +105,6 @@ HTML_TEMPLATE = """
         </section>
 
         <main class="max-w-7xl mx-auto p-4 md:p-8">
-            <!-- Filter and Sort Controls -->
             <div class="flex flex-col md:flex-row justify-between items-center mb-6 bg-white p-4 rounded-lg shadow-sm">
                 <div class="flex items-center space-x-2 mb-4 md:mb-0">
                     <span class="font-semibold">Filter by:</span>
@@ -141,19 +136,25 @@ HTML_TEMPLATE = """
     function openModal(a){currentReferenceImage=a;modalImage.src=a;modal.classList.remove('hidden');textInput.value='';modalError.classList.add('hidden')}
     function closeModal(){modal.classList.add('hidden')}
 
+    
+
     async function performSearch(){
         const a=textInput.value.trim(),b=getSelectedCategory();
         if(!a){modalError.textContent='Please enter a modification.';modalError.classList.remove('hidden');return}
         if(!b){modalError.textContent='Please select a category.';modalError.classList.remove('hidden');return}
         modalLoader.classList.remove('hidden');searchBtn.disabled=!0;modalError.classList.add('hidden');
-        try{const c=await fetch('/visual-search',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({image_path:currentReferenceImage,text:a,category:b})}),d=await c.json();d.error?(modalError.textContent=d.error,modalError.classList.remove('hidden')):d.results&&(allProducts=d.results,displayResults(allProducts),closeModal())}catch(c){modalError.textContent='A network error occurred.';modalError.classList.remove('hidden')}finally{modalLoader.classList.add('hidden');searchBtn.disabled=!1}
+        try{const c=await fetch('/visual-search',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({image_path:currentReferenceImage,text:a,category:b})}),d=await c.json();d.error?(modalError.textContent=d.error,modalError.classList.remove('hidden')):d.results&&(allProducts=d.results,displayResults(d.results),closeModal())}catch(c){modalError.textContent='A network error occurred.';modalError.classList.remove('hidden')}finally{modalLoader.classList.add('hidden');searchBtn.disabled=!1}
     }
 
-    function displayResults(a){productGallery.innerHTML='';a.forEach(b=>productGallery.appendChild(createProductCard(b)));document.documentElement.scrollTop=0}
+
+
+
+    function displayResults(a){productGallery.innerHTML='';a.forEach(b=>productGallery.appendChild(createProductCard(b)));document.documentElement.scrollTop=0; lucide.createIcons();}
     
     function createProductCard(product) {
         const card = document.createElement('div');
         card.className = 'bg-white rounded-lg shadow-md overflow-hidden product-card flex flex-col';
+        card.dataset.product = JSON.stringify(product);
         
         let badgeHTML = '';
         if (product.badge.text) {
@@ -167,7 +168,7 @@ HTML_TEMPLATE = """
             <div class="relative aspect-square overflow-hidden">
                 <img src="${product.path}" class="w-full h-full object-cover product-image transition-transform duration-300">
                 ${badgeHTML}
-                <button class="absolute top-2 right-2 text-gray-300 hover:text-red-500 wishlist-btn" onclick="toggleWishlist(this, event)">
+                <button class="absolute top-2 right-2 text-gray-300 hover:text-red-500 wishlist-btn ${product.wished ? 'active' : ''}" onclick="toggleWishlist(this, event)">
                     <i data-lucide="heart" class="w-6 h-6"></i>
                 </button>
                 <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300 overlay">
@@ -182,26 +183,46 @@ HTML_TEMPLATE = """
                 </div>
                 <div class="mt-2 flex items-baseline gap-x-2">
                     <span class="text-lg font-bold text-gray-800">$${product.price.toFixed(2)}</span>
-                    <span class="text-sm text-gray-500 line-through">$${product.originalPrice.toFixed(2)}</span>
+                    ${product.originalPrice > product.price ? `<span class="text-sm text-gray-500 line-through">$${product.originalPrice.toFixed(2)}</span>` : ''}
                 </div>
                 <p class="text-xs text-gray-500 mt-1">${product.sold} sold</p>
-                <button class="w-full mt-4 bg-indigo-100 text-indigo-700 font-semibold py-2 rounded-lg hover:bg-indigo-200 transition text-sm" onclick="addToCart(event)">Add to Cart</button>
+                <button class="w-full mt-4 bg-indigo-100 text-indigo-700 font-semibold py-2 rounded-lg hover:bg-indigo-200 transition text-sm" onclick="addToCart(this, event)">Add to Cart</button>
             </div>
         `;
-        lucide.createIcons();
         return card;
     }
 
-    function toggleWishlist(btn, event) {
+    async function toggleWishlist(btn, event) {
         event.stopPropagation();
-        btn.classList.toggle('active');
-        const isWished = btn.classList.contains('active');
-        wishlistCounter.textContent = parseInt(wishlistCounter.textContent) + (isWished ? 1 : -1);
+        const card = btn.closest('.product-card');
+        const product = JSON.parse(card.dataset.product);
+        const isWished = !btn.classList.contains('active');
+        
+        const response = await fetch('/api/wishlist', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ product_name: product.name, wished: isWished })
+        });
+        const data = await response.json();
+        wishlistCounter.textContent = data.count;
+        btn.classList.toggle('active', isWished);
     }
     
-    function addToCart(event) {
+    async function addToCart(btn, event) {
         event.stopPropagation();
-        cartCounter.textContent = parseInt(cartCounter.textContent) + 1;
+        const card = btn.closest('.product-card');
+        const product = JSON.parse(card.dataset.product);
+        
+        const response = await fetch('/api/add-to-cart', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ product: product })
+        });
+        const data = await response.json();
+        cartCounter.textContent = data.count;
+        
+        btn.textContent = 'Added!';
+        setTimeout(() => { btn.textContent = 'Add to Cart'; }, 1000);
     }
 
     async function loadInitialProducts(category) {
@@ -214,6 +235,13 @@ HTML_TEMPLATE = """
         } finally {
             galleryLoader.classList.add('hidden');
         }
+    }
+    
+    async function updateCounters() {
+        const response = await fetch('/api/counters');
+        const data = await response.json();
+        wishlistCounter.textContent = data.wishlist_count;
+        cartCounter.textContent = data.cart_count;
     }
 
     function sortProducts(sortBy) {
@@ -229,6 +257,7 @@ HTML_TEMPLATE = """
     
     window.addEventListener('DOMContentLoaded', async () => {
         lucide.createIcons();
+        updateCounters();
         const response = await fetch('/get-categories');
         const data = await response.json();
         const categories = data.categories || [];
@@ -281,6 +310,91 @@ HTML_TEMPLATE = """
 </html>
 """
 
+# Cart Page Template
+CART_PAGE_TEMPLATE = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Shopping Cart - StyleNStay</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style> body { font-family: 'Inter', sans-serif; } </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-white shadow-sm">
+        <nav class="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8">
+            <a href="/" class="-m-1.5 p-1.5 flex items-center">
+                <svg class="h-8 w-auto text-indigo-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                <span class="ml-2 text-xl font-bold text-gray-800">StyleNStay</span>
+            </a>
+            <div><a href="/" class="text-indigo-600 hover:underline">Continue Shopping</a></div>
+        </nav>
+    </header>
+    <main class="max-w-4xl mx-auto p-4 md:p-8">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">Your Shopping Cart</h1>
+        <div id="cart-container" class="bg-white rounded-lg shadow-md">
+            <!-- Cart items will be loaded here -->
+        </div>
+    </main>
+<script>
+    async function loadCartItems() {
+        const response = await fetch('/api/get-cart');
+        const data = await response.json();
+        const container = document.getElementById('cart-container');
+        
+        if (Object.keys(data.cart).length === 0) {
+            container.innerHTML = `<p class="p-8 text-center text-gray-500">Your cart is empty.</p>`;
+            return;
+        }
+
+        let subtotal = 0;
+        let cartHTML = '<ul class="divide-y divide-gray-200">';
+
+        for (const [name, item] of Object.entries(data.cart)) {
+            const itemTotal = item.details.price * item.quantity;
+            subtotal += itemTotal;
+            cartHTML += `
+                <li class="p-4 sm:p-6 flex space-x-4">
+                    <img src="${item.details.path}" class="w-24 h-24 rounded-md object-cover">
+                    <div class="flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-semibold text-gray-800">${item.details.name}</h3>
+                            <p class="text-sm text-gray-500">Quantity: ${item.quantity}</p>
+                        </div>
+                        <p class="font-semibold text-gray-900">$${itemTotal.toFixed(2)}</p>
+                    </div>
+                </li>
+            `;
+        }
+        cartHTML += '</ul>';
+
+        cartHTML += `
+            <div class="p-6 border-t border-gray-200">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-lg font-medium text-gray-600">Subtotal</span>
+                    <span class="text-xl font-bold text-gray-900">$${subtotal.toFixed(2)}</span>
+                </div>
+                <button class="w-full bg-indigo-600 text-white font-semibold py-3 rounded-lg hover:bg-indigo-700 transition">Proceed to Checkout</button>
+            </div>
+        `;
+        container.innerHTML = cartHTML;
+    }
+    
+    window.addEventListener('DOMContentLoaded', loadCartItems);
+</script>
+</body>
+</html>
+"""
+
+# Wishlist Page Template (Placeholder)
+WISHLIST_PAGE_TEMPLATE = """
+<!DOCTYPE html><html lang="en"><head><title>Wishlist</title></head><body><h1>Wishlist Page</h1><p>Under construction.</p><a href="/">Go Back</a></body></html>
+"""
+
+
 # --- Backend Logic ---
 
 class GalleryDataset(torch.utils.data.Dataset):
@@ -294,34 +408,17 @@ class GalleryDataset(torch.utils.data.Dataset):
             return self.preprocess_fn(image)
         except Exception: return None
 
-def generate_product_details(image_path):
+def generate_product_details(image_path, wished_set):
     """Generates random mock data for a product."""
+    product_name = os.path.basename(image_path).replace('.jpg', '').replace('_', ' ').title()
     original_price = random.uniform(25.0, 150.0)
     discount = random.uniform(0.1, 0.4) if random.random() > 0.5 else 0
     price = original_price * (1 - discount)
-    
-    badge_type = 'none'
-    badge_text = ''
-    if discount > 0:
-        badge_type = 'sale'
-        badge_text = f"{int(discount * 100)}% OFF"
-    elif random.random() > 0.8:
-        badge_type = 'new'
-        badge_text = 'New'
-    elif random.random() > 0.7:
-        badge_type = 'trending'
-        badge_text = 'Trending'
-
-    return {
-        'path': url_for('serve_product_image', filename=os.path.basename(image_path)),
-        'name': os.path.basename(image_path).replace('.jpg', '').replace('_', ' ').title(),
-        'price': price,
-        'originalPrice': original_price,
-        'rating': round(random.uniform(3.5, 5.0) * 2) / 2, # Round to nearest 0.5
-        'reviews': random.randint(10, 500),
-        'sold': random.randint(100, 10000),
-        'badge': { 'type': badge_type, 'text': badge_text }
-    }
+    badge_type = 'none'; badge_text = ''
+    if discount > 0: badge_type = 'sale'; badge_text = f"{int(discount * 100)}% OFF"
+    elif random.random() > 0.8: badge_type = 'new'; badge_text = 'New'
+    elif random.random() > 0.7: badge_type = 'trending'; badge_text = 'Trending'
+    return {'path': url_for('serve_product_image', filename=os.path.basename(image_path)),'name': product_name,'price': price,'originalPrice': original_price,'rating': round(random.uniform(3.5, 5.0) * 2) / 2,'reviews': random.randint(10, 500),'sold': random.randint(100, 10000),'badge': {'type': badge_type, 'text': badge_text}, 'wished': product_name in wished_set }
 
 def load_model_and_index():
     """Loads model and pre-computes indexes for multiple categories."""
@@ -361,15 +458,20 @@ def load_model_and_index():
         print(f"'{category}' index created with {len(valid_image_paths)} items.")
     print("\n--- Application Ready ---")
 
+# --- Page Routes ---
 @app.route('/')
 def home(): return render_template_string(HTML_TEMPLATE)
 
+@app.route('/cart')
+def cart_page(): return render_template_string(CART_PAGE_TEMPLATE)
+
+@app.route('/wishlist')
+def wishlist_page(): return render_template_string(WISHLIST_PAGE_TEMPLATE)
+
+# --- API Routes ---
 @app.route('/get-categories')
 def get_categories():
-    """Returns all potential categories and whether they are available."""
-    category_status = []
-    for cat in CATALOG_CATEGORIES:
-        category_status.append({'name': cat, 'available': cat in index_features})
+    category_status = [{'name': cat, 'available': cat in index_features} for cat in CATALOG_CATEGORIES]
     return jsonify({'categories': category_status})
 
 @app.route('/get-initial-products')
@@ -379,7 +481,7 @@ def get_initial_products():
     num_products = 50; paths_for_category = index_paths[category]
     if not paths_for_category: return jsonify({'products': []})
     random_indices = torch.randperm(len(paths_for_category))[:num_products]
-    products = [generate_product_details(paths_for_category[i]) for i in random_indices]
+    products = [generate_product_details(paths_for_category[i], wishlist_items) for i in random_indices]
     return jsonify({'products': products})
 
 @app.route('/visual-search', methods=['POST'])
@@ -400,12 +502,49 @@ def visual_search():
         normalized_index = current_index_features / current_index_features.norm(dim=-1, keepdim=True)
         similarities = (query_feature.to(torch.float32) @ normalized_index.to(torch.float32).T).squeeze(0)
         top_k_indices = torch.topk(similarities, k=20).indices
-        results = [generate_product_details(current_index_paths[i]) for i in top_k_indices]
+        results = [generate_product_details(current_index_paths[i], wishlist_items) for i in top_k_indices]
         return jsonify({'results': results})
     except Exception as e:
         print(f"Error during search: {e}")
         return jsonify({'error': 'Failed to process request.'}), 500
 
+
+@app.route('/api/add-to-cart', methods=['POST'])
+def add_to_cart_api():
+    data = request.get_json()
+    product = data.get('product')
+    if not product: return jsonify({'error': 'No product data'}), 400
+    
+    product_name = product['name']
+    if product_name in cart_items:
+        cart_items[product_name]['quantity'] += 1
+    else:
+        cart_items[product_name] = {'details': product, 'quantity': 1}
+    
+    total_items = sum(item['quantity'] for item in cart_items.values())
+    return jsonify({'success': True, 'count': total_items})
+
+@app.route('/api/wishlist', methods=['POST'])
+def wishlist_api():
+    data = request.get_json()
+    product_name = data.get('product_name')
+    wished = data.get('wished')
+    if wished:
+        wishlist_items.add(product_name)
+    else:
+        wishlist_items.discard(product_name)
+    return jsonify({'success': True, 'count': len(wishlist_items)})
+    
+@app.route('/api/counters')
+def get_counters():
+    total_cart_items = sum(item['quantity'] for item in cart_items.values())
+    return jsonify({'cart_count': total_cart_items, 'wishlist_count': len(wishlist_items)})
+
+@app.route('/api/get-cart')
+def get_cart_api():
+    return jsonify({'cart': cart_items})
+
+# --- Static File Serving ---
 @app.route('/products/<path:filename>')
 def serve_product_image(filename):
     image_dir = os.path.join(FASHION_IQ_BASE_PATH, 'Fashion-IQ', 'fashion-iq', 'images')
